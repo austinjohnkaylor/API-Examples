@@ -7,5 +7,8 @@ Based on the [CodeMaze Article](https://code-maze.com/csharp-hexagonal-architect
 ## Pros and Cons
 `TODO`
 
+## Example Domain
+`TODO`
+
 [Back to solution README.md](../README.md)
 
