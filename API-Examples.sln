@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hexagonal Architectural Pattern", "Hexagonal Architectural Pattern", "{38791846-7283-4F31-B41E-ED404992AC11}"
 	ProjectSection(SolutionItems) = preProject
 		Hexagonal Architectural Pattern\README.md = Hexagonal Architectural Pattern\README.md
+		Hexagonal Architectural Pattern\Hexagonal Architectural Pattern.sln = Hexagonal Architectural Pattern\Hexagonal Architectural Pattern.sln
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Hexagonal Architectural Pattern\Core\Core.csproj", "{34367C9A-4E83-4D32-BC28-E719C5508765}"
