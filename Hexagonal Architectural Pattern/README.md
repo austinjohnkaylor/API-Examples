@@ -95,12 +95,6 @@ Based on the [CodeMaze Article](https://code-maze.com/csharp-hexagonal-architect
 ### [High-Level Processes](https://github.com/ddd-by-examples/library/blob/master/docs/big-picture.md)
 ### [Mid-Level Process Mapping](https://github.com/ddd-by-examples/library/blob/master/docs/example-mapping.md)
 ### [Low-Level Process Mapping]()
-### Bounded-Contexts
-#### Lending
-- Containing all the business processes related to book lending, book checkout, book holding, and book return
-#### Catalog
-- Books
-- Book Instances at Library Branches
 
 [Back to solution README.md](../README.md)
 
