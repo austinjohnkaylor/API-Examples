@@ -37,15 +37,16 @@ Based on the [CodeMaze Article](https://code-maze.com/csharp-hexagonal-architect
 #### Public Library
 - Allows patrons to place books on hold at it's various library branches
 #### Book
+- Metadata about the book
+  - Title
+  - Author
+  - ISBN
+  - Price
 - Are either **circulating** or **restricted** 
 - Can have **retrieval fees** or **usage fees**
 - Can be **restricted**
   - restricted books can only be held by researcher patrons
 - Can be put on hold by only one patron at a time
-- Has to have ISBN
-- Has to have Title
-- Has to have Author
-- Has to have Price
 #### Patron
 - **Regular Patron**
   - limited to 5 holds at a time 
@@ -82,12 +83,24 @@ Based on the [CodeMaze Article](https://code-maze.com/csharp-hexagonal-architect
 - The same book could be at different library branches
 - The same book could have multiple copies at one library branch
 #### Book Instance
+- Physical copy of a book
 - Can only be added to a catalogue if there is a book with matching ISBN already in the catalog
 - When an instance is added to a libraries catalogue, its decided whether it is circulating or restricted
 - This enables us to have `book` with same ISBN as **circulated** and **restricted** at the same time (for instance, there is a book signed by the author that we want to keep as Restricted)
 
+### Questions to answer from High-Level Definitions
+- What happens when a `regular patron` tries to initiate an `open-ended hold`?
+- 
 
-
+### [High-Level Processes](https://github.com/ddd-by-examples/library/blob/master/docs/big-picture.md)
+### [Mid-Level Process Mapping](https://github.com/ddd-by-examples/library/blob/master/docs/example-mapping.md)
+### [Low-Level Process Mapping]()
+### Bounded-Contexts
+#### Lending
+- Containing all the business processes related to book lending, book checkout, book holding, and book return
+#### Catalog
+- Books
+- Book Instances at Library Branches
 
 [Back to solution README.md](../README.md)
 
