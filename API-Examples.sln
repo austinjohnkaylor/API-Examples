@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Uri Versioning", "Uri Versioning", "{8D7DDAF9-251F-4587-855E-246DFE16BB00}"
 	ProjectSection(SolutionItems) = preProject
 		Uri Versioning\Uri Versioning.sln = Uri Versioning\Uri Versioning.sln
+		Uri Versioning\README.md = Uri Versioning\README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "Uri Versioning\API\API.csproj", "{51F689AF-C05B-418E-B342-3567CAA35B24}"
