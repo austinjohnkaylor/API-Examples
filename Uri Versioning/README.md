@@ -32,6 +32,7 @@ Versioning enables existing client applications to continue functioning unchange
 - [C-Sharp Corner API Versioning Article](https://www.c-sharpcorner.com/article/implementing-versioning-in-asp-net-core-webapi/#:~:text=In%20your%20controller%20classes%2C%20apply%20the%20%5BApiVersion%5D%20attribute,ControllerBase%20%7B%20%2F%2F%20Controller%20actions%20and%20endpoints%20%7D)
 - [Microsoft's API Best Practices | API Versioning](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#versioning-a-restful-web-api)
 - [Postman's Article on API Versioning](https://www.postman.com/api-platform/api-versioning/)
+- [How to Integration Test minimal APIs](https://www.infoworld.com/article/3668174/how-to-test-minimal-apis-in-asp-net-core-6.html)
 
 ## Main Readme
 [Back to Solution README](../README.md)
