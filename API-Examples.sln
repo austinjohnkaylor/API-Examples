@@ -16,6 +16,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "Uri Versioning\API\API.csproj", "{9ECA6A24-B9C4-4F19-AB41-D45C8A65C573}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model State Validation", "Model State Validation", "{44F5650B-E1E7-4EC5-BDBF-E4D12C6FA1EE}"
+	ProjectSection(SolutionItems) = preProject
+		Model State Validation\Model State Validation.sln = Model State Validation\Model State Validation.sln
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "Model State Validation\API\API.csproj", "{8EE3736A-583D-446E-8F6B-7237429BBAEA}"
 EndProject
