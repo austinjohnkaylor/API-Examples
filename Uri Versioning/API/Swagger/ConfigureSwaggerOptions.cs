@@ -8,11 +8,17 @@ namespace API.Swagger;
 /// <summary>
 /// Enables Swashbuckle to understand and manage the API versions within the application
 /// </summary>
-public class ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) : IConfigureOptions<SwaggerGenOptions>
+public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
 {
+    private readonly IApiVersionDescriptionProvider _provider;
+    public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider)
+    {
+        _provider = provider;
+    }
+    
     public void Configure(SwaggerGenOptions options)
     {
-        foreach (var description in provider.ApiVersionDescriptions)
+        foreach (ApiVersionDescription description in _provider.ApiVersionDescriptions)
         {
             options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
         }
@@ -22,9 +28,9 @@ public class ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) : 
     {
         var info = new OpenApiInfo
         {
-            Title = "Versioning Web API",
+            Title = "WeatherForecast Versioned Web API",
             Version = description.ApiVersion.ToString(),
-            Description = "Description for the Versioning Web API"
+            Description = "Description for the WeatherForecast Versioned Web API"
         };
 
         if (description.IsDeprecated)
