@@ -3,6 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Uri Versioning", "Uri Versioning", "{8D7DDAF9-251F-4587-855E-246DFE16BB00}"
+	ProjectSection(SolutionItems) = preProject
+		Uri Versioning\Uri Versioning.sln = Uri Versioning\Uri Versioning.sln
+		Uri Versioning\README.md = Uri Versioning\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.UnitTests", "Uri Versioning\API.UnitTests\API.UnitTests.csproj", "{954AFD39-CB38-4258-9130-BA3511524BBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.IntegrationTests", "Uri Versioning\API.IntegrationTests\API.IntegrationTests.csproj", "{786ED607-AAAF-43A9-87D6-3DCA35228C31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "Uri Versioning\API\API.csproj", "{9ECA6A24-B9C4-4F19-AB41-D45C8A65C573}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +22,24 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{954AFD39-CB38-4258-9130-BA3511524BBC} = {8D7DDAF9-251F-4587-855E-246DFE16BB00}
+		{786ED607-AAAF-43A9-87D6-3DCA35228C31} = {8D7DDAF9-251F-4587-855E-246DFE16BB00}
+		{9ECA6A24-B9C4-4F19-AB41-D45C8A65C573} = {8D7DDAF9-251F-4587-855E-246DFE16BB00}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{954AFD39-CB38-4258-9130-BA3511524BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{954AFD39-CB38-4258-9130-BA3511524BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{954AFD39-CB38-4258-9130-BA3511524BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{954AFD39-CB38-4258-9130-BA3511524BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{786ED607-AAAF-43A9-87D6-3DCA35228C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{786ED607-AAAF-43A9-87D6-3DCA35228C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{786ED607-AAAF-43A9-87D6-3DCA35228C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{786ED607-AAAF-43A9-87D6-3DCA35228C31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ECA6A24-B9C4-4F19-AB41-D45C8A65C573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECA6A24-B9C4-4F19-AB41-D45C8A65C573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECA6A24-B9C4-4F19-AB41-D45C8A65C573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ECA6A24-B9C4-4F19-AB41-D45C8A65C573}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
