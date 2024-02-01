@@ -14,6 +14,6 @@ Shows how to implement Model State Validation in an ASP.NET Core Web API
 ## Why should I use it?
 
 ## Further Reading
-
+[code-maze.com Model State Validation article](https://code-maze.com/aspnetcore-modelstate-validation-web-api/)
 ## Main Readme
 [Back to Solution README](../README.md)
