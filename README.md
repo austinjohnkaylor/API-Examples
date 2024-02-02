@@ -3,4 +3,6 @@ A repository containing examples of how to implement different things in ASP.NET
 
 ## Projects
 ### [Uri Versioning](Uri%20Versioning/README.md)
-Shows how to version a Web API by URL
+Shows how to version an ASP.NET Core Web API by URL
+### [Model State Validation](Model%20State%20Validation/README.md)
+Shows how to implement and use the model state validator in ASP.NET Core
