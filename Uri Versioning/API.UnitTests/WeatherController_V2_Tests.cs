@@ -3,7 +3,7 @@ using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
 
-namespace API.UnitTests;
+namespace UriVersioning.API.UnitTests;
 
 public class WeatherControllerV2Tests
 {

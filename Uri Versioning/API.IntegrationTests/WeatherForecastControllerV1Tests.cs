@@ -1,9 +1,10 @@
 ﻿using System.Net;
+using API;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json.Linq;
 
-namespace API.IntegrationTests;
+namespace UriVersioning.API.IntegrationTests;
 
 public class WeatherForecastControllerV1Tests : IClassFixture<WebApplicationFactory<Program>>
 {
