@@ -1,4 +1,4 @@
-namespace API;
+namespace InMemoryCaching.API;
 
 public class WeatherForecast
 {
