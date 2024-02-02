@@ -28,6 +28,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.IntegrationTests", "Model State Validation\API.IntegrationTests\API.IntegrationTests.csproj", "{BF4703A6-FEA9-4F8C-8140-0516593F9082}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "In Memory Caching", "In Memory Caching", "{2CA573A8-05A6-4843-BAE7-DD3DCC4E4533}"
+	ProjectSection(SolutionItems) = preProject
+		In Memory Caching\In Memory Caching.sln = In Memory Caching\In Memory Caching.sln
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.UnitTests", "In Memory Caching\API.UnitTests\API.UnitTests.csproj", "{19E286A5-A938-4966-ACA4-C218AB5B7E8C}"
 EndProject
