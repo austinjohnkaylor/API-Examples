@@ -8,3 +8,5 @@ Shows how to version an ASP.NET Core Web API by URL
 Shows how to implement and use the model state validator in ASP.NET Core
 ### [Simple Authentication](Simple%20Authentication/README.md)
 Shows how to implement simple token-based authentication in a .NET 8 ASP.NET Core Web API
+### [In-Memory Caching](In%20Memory%20Caching/README.md)
+Shows how to implement in-memory caching in an ASP.NET Core Web API
