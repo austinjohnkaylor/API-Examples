@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace API.Models;
+namespace ModelStateValidation.API.Models;
 
 /// <summary>
 /// Represents a person

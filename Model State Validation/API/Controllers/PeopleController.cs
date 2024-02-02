@@ -1,8 +1,8 @@
-﻿using API.ActionFilters;
-using API.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using ModelStateValidation.API.ActionFilters;
+using ModelStateValidation.API.Models;
 
-namespace API.Controllers;
+namespace ModelStateValidation.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]

@@ -1,12 +1,11 @@
 ﻿using System.Net;
 using System.Text;
 using System.Text.Json;
-using API.Models;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Newtonsoft.Json.Linq;
+using ModelStateValidation.API.Models;
 
-namespace API.IntegrationTests;
+namespace ModelStateValidation.API.IntegrationTests;
 
 public class PersonControllerTests : IClassFixture<WebApplicationFactory<Program>>
 {

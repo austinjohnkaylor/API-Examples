@@ -1,5 +1,5 @@
-using API.ActionFilters;
 using Microsoft.AspNetCore.Mvc;
+using ModelStateValidation.API.ActionFilters;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -28,4 +28,7 @@ app.UseSwaggerUI();
 app.Run();
 
 // Added for integration tests
-public partial class Program;
+namespace ModelStateValidation.API
+{
+    public partial class Program;
+}

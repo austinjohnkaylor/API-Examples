@@ -1,13 +1,12 @@
-﻿using System.Net;
-using API.Controllers;
-using API.Models;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
+using ModelStateValidation.API.Controllers;
+using ModelStateValidation.API.Models;
 using Moq;
 
-namespace API.UnitTests;
+namespace ModelStateValidation.API.UnitTests;
 
 public class PersonControllerTests
 {
