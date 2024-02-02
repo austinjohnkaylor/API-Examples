@@ -23,9 +23,12 @@ public class Student
     [Range(10, 20, ErrorMessage = "If you are less than 10 years old or older than 20 years old, you're either a genius or need to focus on getting your G.E.D")]
     public int Age { get; set; }
 
-    public GradeLevel Grade { get; set; } = GradeLevel.Freshman;
+    public GradeLevel? Grade { get; set; }
     
-    public Gender Gender { get; set; } = Gender.NonBinary;
+    public Gender? Gender { get; set; }
 
     public string Email => $"{FirstName}.{MiddleName}.{LastName}@school.edu";
+    
+    public ICollection<Enrollment> Enrollments { get; set; }
+
 }

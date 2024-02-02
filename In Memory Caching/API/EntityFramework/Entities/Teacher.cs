@@ -23,4 +23,6 @@ public class Teacher
     public Gender Gender { get; set; } = Gender.NonBinary;
 
     public string Email => $"Professor.{LastName}@school.edu";
+
+    public ICollection<Course> Courses { get; set; }
 }
