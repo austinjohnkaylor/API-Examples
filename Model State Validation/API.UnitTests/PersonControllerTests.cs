@@ -3,6 +3,7 @@ using API.Controllers;
 using API.Models;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using Moq;
 
@@ -11,6 +12,19 @@ namespace API.UnitTests;
 public class PersonControllerTests
 {
     private readonly Mock<ILogger<PeopleController>> _loggerMock = new();
+    private readonly Mock<IActionFilter> _mockValidationFilter = new();
+
+    public PersonControllerTests()
+    {
+        _mockValidationFilter.Setup(x => x.OnActionExecuting(It.IsAny<ActionExecutingContext>()))
+            .Callback<ActionExecutingContext>(context =>
+            {
+                if (!context.ModelState.IsValid)
+                {
+                    context.Result = new UnprocessableEntityObjectResult(context.ModelState);
+                }
+            });
+    }
 
     [Fact]
     public void WhenGetEndpointIsCalled_WithValidGuid_ShouldReturn200()
@@ -40,14 +54,16 @@ public class PersonControllerTests
         createdResult.Value.Should().BeOfType(typeof(Person));
     }
     
-    [Fact(Skip = "Need to figure out why this is returning 201 and not 422")]
+    [Fact]
     public void WhenPostEndpointIsCalled_WithFirstNameLongerThan50Characters_ShouldReturn422()
     {
         // Arrange 
         var controller = new PeopleController(_loggerMock.Object);
         Person person = new()
         {
-            FirstName = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+            FirstName = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz",
+            LastName = "B",
+            Age = 50
         };
         // Act
         IActionResult result = controller.Post(person);
