@@ -10,7 +10,7 @@ public static class PersonGenerator
 {
     public static readonly List<EntityFramework.Person> People = new();
 
-    public static List<EntityFramework.Person> Generate(int numberOfPeople)
+    public static void Generate(int numberOfPeople)
     {
         var id = 1;
         var personFaker = new Faker<EntityFramework.Person>()
@@ -23,6 +23,5 @@ public static class PersonGenerator
 
         var fakePeople = personFaker.Generate(numberOfPeople);
         People.AddRange(fakePeople);
-        return fakePeople;
     }
 }

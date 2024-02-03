@@ -11,8 +11,12 @@ public class PersonContext : DbContext
         
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Person>().HasData(PersonGenerator.Generate(1000));
-    }
+    // protected override void OnModelCreating(ModelBuilder modelBuilder)
+    // {
+    //     base.OnModelCreating(modelBuilder);
+    //
+    //     PersonGenerator.Generate(1000);
+    //     
+    //     modelBuilder.Entity<Person>().HasData(PersonGenerator.People);
+    // }
 }
