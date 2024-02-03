@@ -1,14 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace InMemoryCaching.API.EntityFramework.Entities;
+namespace InMemoryCaching.API.EntityFramework;
 
 /// <summary>
 /// Represents a person
 /// </summary>
 public class Person
 {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Required] 
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     [Required]
     [MaxLength(50, ErrorMessage = "If your name is longer than 50 characters, you may want to consider a nickname")]
     public string? FirstName { get; set; }
