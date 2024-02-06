@@ -36,7 +36,6 @@ namespace InMemoryCaching.API.Controllers
                 // In this case, the cache entry has a normal priority, which means it has a medium chance of being evicted when the cache is full
                 Priority = CacheItemPriority.Normal
             };
-            InitializeInMemoryDatabase();
         }
         
         // GET: api/Person
@@ -200,24 +199,6 @@ namespace InMemoryCaching.API.Controllers
         private bool PersonExists(int id)
         {
             return _context.People.Any(e => e.Id == id);
-        }
-
-        /// <summary>
-        /// Populate the database with data
-        /// </summary>
-        /// <remarks>I resorted to this because .HasData() wasn't working in <see cref="PersonContext"/>'s OnModelCreating method</remarks>
-        private void InitializeInMemoryDatabase()
-        {
-            _context.Database.EnsureCreated();
-            
-            if (_context.People.Any())
-                return;
-            
-            PersonGenerator.Generate(1000);
-
-            _context.People.AddRange(PersonGenerator.People);
-
-            _context.SaveChanges();
         }
     }
 }

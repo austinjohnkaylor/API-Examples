@@ -1,3 +1,4 @@
+using InMemoryCaching.API;
 using InMemoryCaching.API.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<PersonContext>(opts => opts.UseInMemoryDatabase("People"));
+builder.Services.AddScoped<DatabaseInitializer>();
 
 WebApplication app = builder.Build();
 
@@ -21,6 +23,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.SeedDatabase(1000);
 }
 
 app.UseHttpsRedirection();

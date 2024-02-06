@@ -4,7 +4,12 @@ namespace InMemoryCaching.API.EntityFramework;
 
 public class PersonContext : DbContext
 {
-    public DbSet<Person> People { get; set; }
+    public virtual DbSet<Person> People { get; set; }
+
+    public PersonContext()
+    {
+        
+    }
 
     public PersonContext(DbContextOptions options) : base(options)
     {
