@@ -37,17 +37,16 @@ public class PersonControllerTests
         MemoryCacheEntryOptions cacheEntryOptions = new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(1));
         var cacheEntry = new Mock<ICacheEntry>();
         _mockMemoryCache.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(cacheEntry.Object);
-        //_mockMemoryCache.Setup(cache => cache.TryGetValue(cacheKey, out people));
         
         // Act
         var result = await _personController.GetPeople();
-        var resultHttp = result.Result as OkObjectResult;
-        var resultPeople = resultHttp.Value as List<Person>;
+        OkObjectResult? resultHttp = result.Result as OkObjectResult;
+        var resultPeople = resultHttp?.Value as List<Person>;
         
         // Assert
         resultHttp.Should().BeOfType<OkObjectResult>();
-        resultHttp.StatusCode.Should().Be(200);
-        resultPeople.Count.Should().Be(people.Count);
+        resultHttp?.StatusCode.Should().Be(200);
+        resultPeople?.Count.Should().Be(people.Count);
     }
     
 }
