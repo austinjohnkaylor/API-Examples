@@ -97,7 +97,7 @@ namespace InMemoryCaching.API.Controllers
             }
             
             _logger.LogInformation("Person {id} was not found in the cache. Fetching from the database instead", id);
-            person = await _context.People.FindAsync(id);
+            person = await _context.People.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
             
             // Check if the employee exists
             if (person == null)
