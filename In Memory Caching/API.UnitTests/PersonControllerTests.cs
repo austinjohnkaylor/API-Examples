@@ -122,4 +122,86 @@ public class PersonControllerTests
         resultHttp.Should().BeOfType<NotFoundResult>();
         resultHttp?.StatusCode.Should().Be(404);
     }
+    
+    [Fact]
+    public async Task GetPerson_SavesPersonFromDatabaseToCache_WhenPersonDoesNotExistInCache()
+    {
+        // Arrange
+        const int id = 1;
+        _mockDbContext.Setup(x => x.People).ReturnsDbSet(_people);
+        
+        // Act
+        var result = await _personController.GetPerson(id);
+        Person? personFromDatabaseSavedToCache = _cache.Get<Person>(string.Format(PersonCacheKey, id));
+        OkObjectResult? resultHttp = result.Result as OkObjectResult;
+        Person? returnedPerson = resultHttp?.Value as Person;
+
+        // Assert
+        resultHttp.Should().BeOfType<OkObjectResult>();
+        resultHttp?.StatusCode.Should().Be(200);
+        returnedPerson.Should().BeEquivalentTo(personFromDatabaseSavedToCache);
+    }
+
+    [Fact]
+    public async Task PutPerson_ReturnsBadRequest_WhenIdEnteredDoesNotMatchPersonsId()
+    {
+        // Arrange
+        const int id = 1;
+        Person person = _people.Find(a => a.Id == 2) ?? new Person{ Id = 2 };
+        // Act
+        IActionResult result = await _personController.PutPerson(id, person);
+        BadRequestResult? resultHttp = result as BadRequestResult;
+        // Assert
+        resultHttp.Should().BeOfType(typeof(BadRequestResult));
+        resultHttp?.StatusCode.Should().Be(400);
+    }
+
+    [Fact]
+    public async Task PutPerson_ReturnsNotFound_WhenIdEnteredDoesNotMatchExistingPersonInDatabase()
+    {
+        // Arrange
+        const int id = 1001; // outside the bounds of the 1000 people populated in the database
+        Person? person = new() { Id = id };
+        _mockDbContext.Setup(x => x.People).ReturnsDbSet(_people);
+        // Act
+        IActionResult result = await _personController.PutPerson(id, person);
+        NotFoundResult? resultHttp = result as NotFoundResult;
+        // Assert
+        resultHttp.Should().BeOfType(typeof(NotFoundResult));
+        resultHttp?.StatusCode.Should().Be(404);
+    }
+
+    [Fact]
+    public async Task PutPerson_ReturnsNoContent_WhenIdMatchesPersonsIdAndPersonExistsInDatabase()
+    {
+        // Arrange
+        const int id = 5; // outside the bounds of the 1000 people populated in the database
+        Person? person = _people.FirstOrDefault(person => person.Id == id);
+        _mockDbContext.Setup(x => x.People).ReturnsDbSet(_people);
+        _mockDbContext.Setup(c => c.SetModified(It.IsAny<Person>()));
+        //_mockDbContext.Setup(context => context.Entry(originalPerson).State).Returns(EntityState.Modified);
+        _mockDbContext.Setup(context => context.SaveChangesAsync(new CancellationToken())).ReturnsAsync(1);
+        // Act
+        IActionResult result = await _personController.PutPerson(id, person);
+        NoContentResult? resultHttp = result as NoContentResult;
+        // Assert
+        resultHttp.Should().BeOfType(typeof(NoContentResult));
+        resultHttp?.StatusCode.Should().Be(204);
+    }
+    
+    [Fact]
+    public async Task PutPerson_RemovesPersonFromCache_WhenIdMatchesPersonsIdAndPersonExistsInDatabase()
+    {
+        // Arrange
+        const int id = 5; // outside the bounds of the 1000 people populated in the database
+        Person? person = _people.FirstOrDefault(person => person.Id == id);
+        _mockDbContext.Setup(x => x.People).ReturnsDbSet(_people);
+        _mockDbContext.Setup(c => c.SetModified(It.IsAny<Person>()));
+        //_mockDbContext.Setup(context => context.Entry(originalPerson).State).Returns(EntityState.Modified);
+        _mockDbContext.Setup(context => context.SaveChangesAsync(new CancellationToken())).ReturnsAsync(1);
+        // Act
+        IActionResult result = await _personController.PutPerson(id, person);
+        // Assert
+        _cache.Get<Person>(string.Format(PersonCacheKey, id)).Should().BeNull();
+    }
 }

@@ -134,7 +134,8 @@ namespace InMemoryCaching.API.Controllers
             
             // Update the person in the database
             _logger.LogInformation("Updating Person {id} in the database", id);
-            _context.Entry(person).State = EntityState.Modified;
+            //_context.Entry(person).State = EntityState.Modified;
+            _context.SetModified(person);
             await _context.SaveChangesAsync();
             
             // Remove the person from the in-memory cache

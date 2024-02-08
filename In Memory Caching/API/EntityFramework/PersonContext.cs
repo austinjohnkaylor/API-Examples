@@ -15,6 +15,11 @@ public class PersonContext : DbContext
     {
         
     }
+    public virtual void SetModified(object entity)
+    {
+        Entry(entity).State = EntityState.Modified;
+    }
+    
 
     // protected override void OnModelCreating(ModelBuilder modelBuilder)
     // {
