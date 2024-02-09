@@ -8,4 +8,5 @@ Shows how to implement [Swashbuckle](https://github.com/domaindrivendev/Swashbuc
 
 ## TODO
 - Implement a minimal API with open api versioning following the example set [here](https://github.com/dotnet/aspnet-api-versioning/tree/3857a332057d970ad11bac0edfdbff8a559a215d/examples/AspNetCore/WebApi/MinimalOpenApiExample)
+
 [Back to solution readme](../README.md)
