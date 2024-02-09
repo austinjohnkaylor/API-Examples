@@ -33,3 +33,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+namespace InMemoryCaching.API
+{
+    public partial class Program{}
+}
