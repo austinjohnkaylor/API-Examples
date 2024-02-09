@@ -56,6 +56,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Swagger", "Open 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Versioning", "Open API Documentation\MinimalAPI.Versioning\MinimalAPI.Versioning.csproj", "{43F5A8B5-6128-40A5-ADBA-8AAB350CFA5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Controllers", "Open API Documentation\API.Controllers\API.Controllers.csproj", "{B674F920-2DF5-4068-8210-C3BB9A06C2BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,7 @@ Global
 		{FE312A27-37AB-4B7C-93E1-A4CFD7FC4CF8} = {55AED7BF-9C67-4E9F-886C-5A9ED72FB1F4}
 		{A092F873-69EE-4277-A15B-FCC4332A279C} = {9188A808-12E0-48E2-98D3-64EF49F6B8E1}
 		{43F5A8B5-6128-40A5-ADBA-8AAB350CFA5C} = {9188A808-12E0-48E2-98D3-64EF49F6B8E1}
+		{B674F920-2DF5-4068-8210-C3BB9A06C2BE} = {9188A808-12E0-48E2-98D3-64EF49F6B8E1}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{954AFD39-CB38-4258-9130-BA3511524BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -127,5 +130,9 @@ Global
 		{43F5A8B5-6128-40A5-ADBA-8AAB350CFA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43F5A8B5-6128-40A5-ADBA-8AAB350CFA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43F5A8B5-6128-40A5-ADBA-8AAB350CFA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B674F920-2DF5-4068-8210-C3BB9A06C2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B674F920-2DF5-4068-8210-C3BB9A06C2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B674F920-2DF5-4068-8210-C3BB9A06C2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B674F920-2DF5-4068-8210-C3BB9A06C2BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
