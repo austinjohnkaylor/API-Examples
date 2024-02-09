@@ -134,7 +134,6 @@ namespace InMemoryCaching.API.Controllers
             
             // Update the person in the database
             _logger.LogInformation("Updating Person {id} in the database", id);
-            //_context.Entry(person).State = EntityState.Modified;
             _context.SetModified(person);
             await _context.SaveChangesAsync();
             
@@ -148,7 +147,7 @@ namespace InMemoryCaching.API.Controllers
         // POST: api/Person
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Person>> PostPerson(Person person)
+        public async Task<IActionResult> PostPerson(Person person)
         {
             string cacheKey = string.Format(PersonCacheKey, person.Id);
 
