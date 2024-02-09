@@ -4,7 +4,8 @@ Shows how to implement [Swashbuckle](https://github.com/domaindrivendev/Swashbuc
 ## Projects
 ### MinimalAPI.Versioning
 Shows how to implement versioning with minimal APIs using the `Microsoft.AspNetCore.Mvc.Versioning` package. The versioning is implemented using the `Microsoft.AspNetCore.Mvc.Versioning.ApiVersion` attribute.
-
+### MinimalAPI.Swagger
+Shows how to implement different OpenAPI functions within a minimal API
 ## Further Reading
 - [ASP.NET Core web API documentation with Swagger / OpenAPI](https://learn.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-8.0)
 - [OpenAPI support in minimal API apps](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/openapi?view=aspnetcore-8.0)

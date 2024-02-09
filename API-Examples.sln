@@ -52,7 +52,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Open API Documentation", "O
 		Open API Documentation\README.md = Open API Documentation\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.MinimalAPI", "Open API Documentation\Swagger.MinimalAPI\Swagger.MinimalAPI.csproj", "{A092F873-69EE-4277-A15B-FCC4332A279C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Swagger", "Open API Documentation\MinimalAPI.Swagger\MinimalAPI.Swagger.csproj", "{A092F873-69EE-4277-A15B-FCC4332A279C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Versioning", "Open API Documentation\MinimalAPI.Versioning\MinimalAPI.Versioning.csproj", "{43F5A8B5-6128-40A5-ADBA-8AAB350CFA5C}"
 EndProject
