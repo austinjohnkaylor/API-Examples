@@ -13,7 +13,23 @@ public class SimpleStoreDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities?source=recommendations#mapping-owned-types-with-table-splitting
-        modelBuilder.Entity<Order>().OwnsOne(
+        modelBuilder.Entity<Customer>()
+            .HasBaseType<Audit>() // https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#entity-type-hierarchy-mapping
+            .OwnsOne(
+                o => o.Address,
+                sa =>
+                {
+                    sa.Property(p => p.Street).HasColumnName("Street");
+                    sa.Property(p => p.StreetLineTwo).HasColumnName("StreetLineTwo");
+                    sa.Property(p => p.City).HasColumnName("City");
+                    sa.Property(p => p.State).HasColumnName("State");
+                    sa.Property(p => p.ZipCode).HasColumnName("ZipCode");
+                });
+        
+        // https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities?source=recommendations#mapping-owned-types-with-table-splitting
+        modelBuilder.Entity<Order>()
+            .HasBaseType<Audit>() // https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#entity-type-hierarchy-mapping
+            .OwnsOne(
             o => o.ShippingAddress,
             sa =>
             {
@@ -24,17 +40,9 @@ public class SimpleStoreDbContext : DbContext
                 sa.Property(p => p.ZipCode).HasColumnName("ShipsToZipCode");
             });
         
-        // https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities?source=recommendations#mapping-owned-types-with-table-splitting
-        modelBuilder.Entity<Customer>().OwnsOne(
-            o => o.Address,
-            sa =>
-            {
-                sa.Property(p => p.Street).HasColumnName("Street");
-                sa.Property(p => p.StreetLineTwo).HasColumnName("StreetLineTwo");
-                sa.Property(p => p.City).HasColumnName("City");
-                sa.Property(p => p.State).HasColumnName("State");
-                sa.Property(p => p.ZipCode).HasColumnName("ZipCode");
-            });
+        modelBuilder.Entity<Product>()
+            .HasBaseType<Audit>(); // https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#entity-type-hierarchy-mapping
+        
         base.OnModelCreating(modelBuilder);
     }
 
