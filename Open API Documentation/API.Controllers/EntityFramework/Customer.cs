@@ -28,19 +28,7 @@ public class Customer : Audit
     /// <summary>
     /// The customer's address
     /// </summary>
-    public string Address { get; set; }
-    /// <summary>
-    /// The customer's city
-    /// </summary>
-    public string City { get; set; }
-    /// <summary>
-    /// The customer's state
-    /// </summary>
-    public string State { get; set; }
-    /// <summary>
-    /// The customer's zip code
-    /// </summary>
-    public string ZipCode { get; set; }
+    public Address Address { get; set; }
     /// <summary>
     /// Represents a customer's orders
     /// </summary>

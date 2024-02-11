@@ -24,7 +24,7 @@ public class Order : Audit
     /// <summary>
     /// The address the order is being shipped to
     /// </summary>
-    public string? Address { get; set; }
+    public Address ShippingAddress { get; set; }
     /// <summary>
     /// The status of the order
     /// </summary>
