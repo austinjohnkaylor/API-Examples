@@ -1,3 +1,5 @@
+using API.Controllers;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -8,11 +10,9 @@ builder.Services.AddSwaggerGen();
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+app.SeedDatabase(1000,5, 5);
 
 app.UseHttpsRedirection();
 
