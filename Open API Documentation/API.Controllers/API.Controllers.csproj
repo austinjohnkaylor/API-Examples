@@ -26,7 +26,6 @@
     <Folder Include="Controllers\V1\" />
     <Folder Include="Controllers\V2\" />
     <Folder Include="Controllers\V3\" />
-    <Folder Include="Models\V1\" />
     <Folder Include="Models\V2\" />
     <Folder Include="Models\V3\" />
   </ItemGroup>
