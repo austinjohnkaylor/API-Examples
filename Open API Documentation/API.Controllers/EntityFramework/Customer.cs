@@ -1,4 +1,6 @@
-﻿namespace API.Controllers.EntityFramework;
+﻿using API.Controllers.Models.V1;
+
+namespace API.Controllers.EntityFramework;
 
 /// <summary>
 /// Represents a customer
@@ -33,4 +35,14 @@ public class Customer : Audit
     /// Represents a customer's orders
     /// </summary>
     public ICollection<Order> Orders { get; set; }
+    
+    public static explicit operator Customer(CustomerDto customer)
+    {
+        return new Customer
+        {
+            FirstName = customer.FirstName,
+            LastName = customer.LastName,
+            Email = customer.Email
+        };
+    }
 }

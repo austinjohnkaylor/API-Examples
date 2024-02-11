@@ -1,4 +1,6 @@
-﻿namespace API.Controllers.EntityFramework;
+﻿using API.Controllers.Models.V1;
+
+namespace API.Controllers.EntityFramework;
 
 /// <summary>
 /// Represents a product
@@ -33,4 +35,15 @@ public class Product : Audit
     /// The category the product falls into
     /// </summary>
     public string Category { get; set; }
+    
+    public static explicit operator Product(ProductDto product)
+    {
+        return new Product
+        {
+            Name = product.Name,
+            Description = product.Description,
+            Price = product.Price,
+            Category = product.Category
+        };
+    }
 }
