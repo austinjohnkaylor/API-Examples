@@ -8,7 +8,7 @@ public class Product : Audit
     /// <summary>
     /// The product's Id
     /// </summary>
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     /// <summary>
     /// The product's name
     /// </summary>

@@ -8,7 +8,7 @@ public class Order : Audit
     /// <summary>
     /// The order's Id
     /// </summary>
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     /// <summary>
     /// The order's name
     /// </summary>

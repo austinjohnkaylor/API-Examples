@@ -8,7 +8,7 @@ public class Customer : Audit
     /// <summary>
     /// The customer's Id
     /// </summary>
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     /// <summary>
     /// The customer's first name
     /// </summary>
