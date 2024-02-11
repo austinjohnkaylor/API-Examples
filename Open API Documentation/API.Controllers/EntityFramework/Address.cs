@@ -28,4 +28,9 @@ public class Address
     /// <example>15122</example>
     public string ZipCode { get; set; }
     
+    public override string ToString()
+    {
+        return $"{Street} {StreetLineTwo}, {City}, {State} {ZipCode}";
+    }
+    
 }
