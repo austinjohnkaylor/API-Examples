@@ -1,4 +1,5 @@
 using API.Controllers;
+using API.Controllers.EntityFramework;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<SimpleStoreDbContext>(opts => opts.UseInMemoryDatabase("People"));
+builder.Services.AddScoped<DatabaseInitializer>();
 
 WebApplication app = builder.Build();
 
