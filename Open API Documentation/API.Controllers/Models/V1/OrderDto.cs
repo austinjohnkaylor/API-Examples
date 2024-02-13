@@ -31,10 +31,33 @@ public class OrderDto
     }
 
     /// <summary>
-    /// Converts an Order to an Order DTO
+    /// Converts an order data transfer object to an <see cref="Order"/>
     /// </summary>
-    /// <param name="order">The <see cref="Order"/> object in the database</param>
-    /// <returns>A <see cref="OrderDto"/></returns>
+    /// <param name="order">The order data transfer object to convert</param>
+    /// <returns>An <see cref="Order"/></returns>
+    public static explicit operator Order(OrderDto order)
+    {
+        return new Order
+        {
+            Name = order.Name,
+            Description = order.Description,
+            Price = order.Price,
+            ShippingAddress = new Address
+            {
+                Street = order.Address.Split(",")[0],
+                City = order.Address.Split(",")[1],
+                State = order.Address.Split(",")[2],
+                ZipCode = order.Address.Split(",")[3]
+            },
+            TrackingNumber = order.TrackingNumber
+        };
+    }
+    
+    /// <summary>
+    /// Converts a <see cref="Order"/> to an order data transfer object
+    /// </summary>
+    /// <param name="order">The <see cref="Order"/> to convert</param>
+    /// <returns>An order data transfer object</returns>
     public static explicit operator OrderDto(Order order)
     {
         return new OrderDto
@@ -42,7 +65,7 @@ public class OrderDto
             Name = order.Name,
             Description = order.Description,
             Price = order.Price,
-            Address = order.ShippingAddress.ToString(),
+            Address = $"{order.ShippingAddress.Street}, {order.ShippingAddress.City}, {order.ShippingAddress.State}, {order.ShippingAddress.ZipCode}",
             TrackingNumber = order.TrackingNumber
         };
     }

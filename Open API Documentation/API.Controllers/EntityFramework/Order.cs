@@ -39,22 +39,4 @@ public class Order : Audit
     /// Represents products in an order
     /// </summary>
     public ICollection<Product> Products { get; set; }
-    
-    public static explicit operator Order(OrderDto order)
-    {
-        return new Order
-        {
-            Name = order.Name,
-            Description = order.Description,
-            Price = order.Price,
-            ShippingAddress = new Address
-            {
-                Street = order.Address.Split(",")[0],
-                City = order.Address.Split(",")[1],
-                State = order.Address.Split(",")[2],
-                ZipCode = order.Address.Split(",")[3]
-            },
-            TrackingNumber = order.TrackingNumber
-        };
-    }
 }
