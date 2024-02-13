@@ -5,6 +5,7 @@
 /// </summary>
 public class Audit
 {
+    public int Id { get; set; }
     /// <summary>
     /// When the record was created
     /// </summary>

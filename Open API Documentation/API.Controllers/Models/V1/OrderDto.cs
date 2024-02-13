@@ -12,23 +12,6 @@ public class OrderDto
     public decimal Price { get; set; }
     public string Address { get; set; }
     public string? TrackingNumber { get; set; }
-    
-    public static OrderDto CreateInstance()
-    {
-        return new OrderDto();
-    }
-    
-    public static OrderDto CreateInstance(string name, string description, decimal price, string address, string trackingNumber)
-    {
-        return new OrderDto
-        {
-            Name = name,
-            Description = description,
-            Price = price,
-            Address = address,
-            TrackingNumber = trackingNumber
-        };
-    }
 
     /// <summary>
     /// Converts an order data transfer object to an <see cref="Order"/>
