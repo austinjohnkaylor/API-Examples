@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<SimpleStoreDbContext>(opts => opts.UseInMemoryDatabase("People"));
+builder.Services.AddDbContext<SimpleStoreDbContext>(opts => opts.UseInMemoryDatabase("SimpleStore"));
 builder.Services.AddScoped<DatabaseInitializer>();
 
 WebApplication app = builder.Build();
