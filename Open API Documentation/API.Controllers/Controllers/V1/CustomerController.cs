@@ -26,9 +26,10 @@ namespace API.Controllers.Controllers.V1
         /// </remarks>
         /// <response code="200">Returns all the existing customers</response>
         /// <response code="400">A bad request was sent</response>
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<CustomerDto>>> GetCustomers()
         {
             var customers = await context.Customers.ToListAsync();
@@ -56,11 +57,13 @@ namespace API.Controllers.Controllers.V1
         /// <response code="200">Returns the existing customer</response>
         /// <response code="400">A bad request was sent</response>
         /// <response code="404">The customer was not found</response>
+        [Produces("application/json")]
+        // [ProducesResponseType(StatusCodes.Status200OK)]
+        // [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        // [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ApiConventionMethod(typeof(CustomWebApiConventions), nameof(CustomWebApiConventions.Find))] // <- https://learn.microsoft.com/en-us/aspnet/core/web-api/advanced/conventions?view=aspnetcore-8.0#apply-web-api-conventions
         [HttpGet("{id:int}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<CustomerDto>> GetCustomer(int id)
+        public async Task<ActionResult<CustomerDto>> FindCustomer(int id)
         {
             Customer? customer = await context.Customers.FindAsync(id);
 
@@ -90,9 +93,11 @@ namespace API.Controllers.Controllers.V1
         /// <response code="400">The customer's Id doesn't match the rest of the customer's information entered</response>
         /// <response code="400">A bad request was sent</response>
         /// <response code="404">The customer was not found</response>
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
+        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Put))] // <- https://learn.microsoft.com/en-us/aspnet/core/web-api/advanced/conventions?view=aspnetcore-8.0#apply-web-api-conventions
+        // [ProducesResponseType(StatusCodes.Status204NoContent)]
+        // [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        // [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> PutCustomer(int id, CustomerDto customerDto)
         {
@@ -141,6 +146,7 @@ namespace API.Controllers.Controllers.V1
         /// </remarks>
         /// <response code="201">The customer was created successfully</response>
         /// <response code="400">A bad request was sent</response>
+        [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost]
@@ -150,7 +156,7 @@ namespace API.Controllers.Controllers.V1
             context.Customers.Add(databaseCustomer);
             await context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCustomer", new { id = databaseCustomer.Id }, databaseCustomer);
+            return CreatedAtAction("FindCustomer", new { id = databaseCustomer.Id }, databaseCustomer);
         }
         
         /// <summary>
@@ -167,6 +173,7 @@ namespace API.Controllers.Controllers.V1
         /// <response code="204">The customer was deleted successfully</response>
         /// <response code="400">A bad request was sent</response>
         /// <response code="404">The customer was not found</response>
+        [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
