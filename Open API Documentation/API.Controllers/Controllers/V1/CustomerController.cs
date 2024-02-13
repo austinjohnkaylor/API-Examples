@@ -4,11 +4,19 @@ using API.Controllers.Models.V1;
 
 namespace API.Controllers.Controllers.V1
 {
+    /// <summary>
+    /// An API controller for interacting with the Customer entity.
+    /// </summary>
+    /// <param name="context"></param>
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController(SimpleStoreDbContext context) : ControllerBase
     {
         // GET: api/Customer
+        /// <summary>
+        /// Get all the Customers in the database
+        /// </summary>
+        /// <returns>A list of <see cref="CustomerDto"/></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CustomerDto>>> GetCustomers()
         {
@@ -24,7 +32,12 @@ namespace API.Controllers.Controllers.V1
         }
 
         // GET: api/Customer/5
-        [HttpGet("{id}")]
+        /// <summary>
+        /// Get a specific Customer by ID
+        /// </summary>
+        /// <param name="id">The id of the Customer</param>
+        /// <returns>a specific Customer by ID</returns>
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<CustomerDto>> GetCustomer(int id)
         {
             Customer? customer = await context.Customers.FindAsync(id);
@@ -40,6 +53,12 @@ namespace API.Controllers.Controllers.V1
 
         // PUT: api/Customer/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Updates a specific Customer by ID
+        /// </summary>
+        /// <param name="id">The id of the Customer</param>
+        /// <param name="customerDto">the Customer to update</param>
+        /// <returns></returns>
         [HttpPut("{id:int}")]
         public async Task<IActionResult> PutCustomer(int id, CustomerDto customerDto)
         {
@@ -76,6 +95,11 @@ namespace API.Controllers.Controllers.V1
 
         // POST: api/Customer
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Creates a new Customer
+        /// </summary>
+        /// <param name="customerDto">The Customer to create</param>
+        /// <returns>The newly created Customer</returns>
         [HttpPost]
         public async Task<ActionResult<CustomerDto>> PostCustomer(CustomerDto customerDto)
         {
@@ -87,6 +111,11 @@ namespace API.Controllers.Controllers.V1
         }
 
         // DELETE: api/Customer/5
+        /// <summary>
+        /// Deletes a specific Customer by ID
+        /// </summary>
+        /// <param name="id">The id of the Customer to delete</param>
+        /// <returns></returns>
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteCustomer(int id)
         {
