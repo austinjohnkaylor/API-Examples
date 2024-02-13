@@ -7,10 +7,10 @@ namespace API.Controllers.EntityFramework;
 /// </summary>
 public class Customer : Audit
 {
-    // /// <summary>
-    // /// The customer's Id
-    // /// </summary>
-    // public int Id { get; set; }
+    /// <summary>
+    /// The customer's Id
+    /// </summary>
+    public int Id { get; set; }
     /// <summary>
     /// The customer's first name
     /// </summary>
