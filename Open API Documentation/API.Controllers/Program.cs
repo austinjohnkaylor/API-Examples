@@ -1,6 +1,7 @@
 using System.Reflection;
 using API.Controllers;
 using API.Controllers.EntityFramework;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.SwaggerDoc("v1", new() { Title = "SimpleStore API", Version = "v1" });
+    options.CustomOperationIds(apiDesc => apiDesc.TryGetMethodInfo(out MethodInfo methodInfo) ? methodInfo.Name : null);
+    options.EnableAnnotations(); // https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/master/README.md#swashbuckleaspnetcoreannotations
+    // Enable XML comments to show up for the API
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });

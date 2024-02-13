@@ -2,6 +2,7 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using API.Controllers.EntityFramework;
 using API.Controllers.Models.V1;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace API.Controllers.Controllers.V1
 {
@@ -144,13 +145,15 @@ namespace API.Controllers.Controllers.V1
         ///     POST: api/Customer
         ///
         /// </remarks>
-        /// <response code="201">The customer was created successfully</response>
-        /// <response code="400">A bad request was sent</response>
+        // /// <response code="201">The customer was created successfully</response>
+        // /// <response code="400">A bad request was sent</response>
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        // [ProducesResponseType(StatusCodes.Status201Created)]
+        // [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [SwaggerResponse(201, "The customer was created", typeof(CustomerDto))] // <-https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/master/README.md#enrich-response-metadata
+        [SwaggerResponse(400, "The customer data is invalid")]
         [HttpPost]
-        public async Task<ActionResult<CustomerDto>> PostCustomer(CustomerDto customerDto)
+        public async Task<ActionResult<CustomerDto>> PostCustomer([FromBody, SwaggerRequestBody("The customer payload", Required = true)]CustomerDto customerDto) // <- https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/master/README.md#enrich-requestbody-metadata
         {
             Customer databaseCustomer = (Customer)customerDto;
             context.Customers.Add(databaseCustomer);
