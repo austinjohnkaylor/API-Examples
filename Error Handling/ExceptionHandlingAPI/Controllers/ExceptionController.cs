@@ -16,5 +16,14 @@ namespace ExceptionHandlingAPI.Controllers
         [HttpGet("Throw")]
         public IActionResult Throw() =>
             throw new Exception("Sample exception.");
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks>https://learn.microsoft.com/en-us/aspnet/core/web-api/handle-errors?view=aspnetcore-8.0#exception-handler</remarks>
+        [Route("/error")]
+        public IActionResult HandleError() =>
+            Problem();
     }
 }
