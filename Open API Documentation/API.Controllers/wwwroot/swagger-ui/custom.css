@@ -1,0 +1,29 @@
+﻿.swagger-ui .topbar {
+    background-color: #f93e3e;
+    border-bottom: 1px solid #ffd800;
+    color: #3d3d3d;
+}
+
+.swagger-ui .opblock.opblock-post {
+    background: rgba(254, 134, 97, 0.1);
+    border-color: #fe9861;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary-method {
+    background: #fe9861;
+}
+
+.swagger-ui .opblock.opblock-get {
+    background: rgba(73,204,144,.1);
+    border-color: #49cc90;
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary-method {
+    background: #49cc90;
+}
+
+.swagger-section #header {
+    background-color:
+            #ffd800;
+    padding: 14px;
+}
