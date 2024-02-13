@@ -1,10 +1,14 @@
-﻿namespace API.Controllers.EntityFramework;
+using Microsoft.EntityFrameworkCore;
+using API.Controllers.EntityFramework;
+namespace API.Controllers.EntityFramework;
 
 public class SimpleStoreDbContext : DbContext
 {
     public virtual DbSet<Customer> Customers { get; set; }
     public virtual DbSet<Order> Orders { get; set; }
     public virtual DbSet<Product> Products { get; set; }
+    
+    public DbSet<Audit> Audit { get; set; } = default!;
     
     public SimpleStoreDbContext() { }
 
@@ -46,6 +50,10 @@ public class SimpleStoreDbContext : DbContext
         base.OnModelCreating(modelBuilder);
     }
 
+    /// <summary>
+    /// Sets an entity as modified in the change tracker
+    /// </summary>
+    /// <param name="entity"></param>
     public virtual void SetModified(object entity)
     {
         Entry(entity).State = EntityState.Modified;
