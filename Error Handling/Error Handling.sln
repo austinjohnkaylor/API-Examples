@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{A3262597-7C7C-4292-A726-2F5E62AD4AD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandlingAPI", "ExceptionHandlingAPI\ExceptionHandlingAPI.csproj", "{3327F3AA-2B18-4CDF-8371-52AA4D3D25CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A3262597-7C7C-4292-A726-2F5E62AD4AD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3262597-7C7C-4292-A726-2F5E62AD4AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3262597-7C7C-4292-A726-2F5E62AD4AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3262597-7C7C-4292-A726-2F5E62AD4AD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3327F3AA-2B18-4CDF-8371-52AA4D3D25CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3327F3AA-2B18-4CDF-8371-52AA4D3D25CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3327F3AA-2B18-4CDF-8371-52AA4D3D25CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3327F3AA-2B18-4CDF-8371-52AA4D3D25CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
