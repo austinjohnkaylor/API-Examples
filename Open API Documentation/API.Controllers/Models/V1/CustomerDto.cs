@@ -19,13 +19,9 @@ public class CustomerDto
     /// The customer's e-mail address
     /// </summary>
     public string Email { get; set; }
-    public static CustomerDto CreateInstance()
-    {
-        return new CustomerDto();
-    }
-    
+
     /// <summary>
-    /// Converts a customer to a customer DTO
+    /// Converts a customer to a customer data transfer object
     /// </summary>
     /// <param name="customer">The <see cref="Customer"/> object in the database</param>
     /// <returns>A <see cref="CustomerDto"/></returns>
@@ -37,5 +33,21 @@ public class CustomerDto
             LastName = customer.LastName,
             Email = customer.Email
         };
+    }
+
+    /// <summary>
+    /// Converts a customer data transfer object to a customer
+    /// </summary>
+    /// <param name="customer">The customer data transfer object</param>
+    /// <returns>A <see cref="Customer"/></returns>
+    public static explicit operator Customer(CustomerDto customer)
+    {
+        return new Customer
+        {
+            FirstName = customer.FirstName,
+            LastName = customer.LastName,
+            Email = customer.Email
+        };
+    
     }
 }
