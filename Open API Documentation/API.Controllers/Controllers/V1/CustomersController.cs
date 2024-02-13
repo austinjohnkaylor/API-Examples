@@ -12,7 +12,7 @@ namespace API.Controllers.Controllers.V1
     /// <param name="context">The SimpleStore database context</param>
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController(SimpleStoreDbContext context) : ControllerBase
+    public class CustomersController(SimpleStoreDbContext context) : ControllerBase
     {
         
         /// <summary>
