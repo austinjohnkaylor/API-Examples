@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using API.Controllers.EntityFramework;
 using API.Controllers.Models.V1;
+using Asp.Versioning;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace API.Controllers.Controllers.V1
@@ -10,6 +11,8 @@ namespace API.Controllers.Controllers.V1
     /// </summary>
     /// <param name="context">The SimpleStore database context</param>
     //[Route("api/customers/{customerId:int}/[controller]")]
+    [ApiVersion( 1.0 )]
+    [ApiVersion( 0.9, Deprecated = true )]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController(SimpleStoreDbContext context) : ControllerBase

@@ -1,18 +1,17 @@
-using Microsoft.AspNetCore.Mvc;
 using API.Controllers.EntityFramework;
-using API.Controllers.Models.V1;
+using API.Controllers.Models.V3;
 using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace API.Controllers.Controllers.V1
+namespace API.Controllers.Controllers.V3
 {
     /// <summary>
     /// An API controller for interacting with the Order entity.
     /// </summary>
     /// <param name="context">The SimpleStore database context</param>
     //[Route("api/customers/{customerId:int}/[controller]")]
-    [ApiVersion( 1.0 )]
-    [ApiVersion( 0.9, Deprecated = true )]
+    [ApiVersion(3.0)]
     [Route("api/[controller]")]
     [ApiController]
     public class OrdersController(SimpleStoreDbContext context) : ControllerBase
@@ -108,7 +107,6 @@ namespace API.Controllers.Controllers.V1
             Order? OrderInDatabase = await context.Orders.FirstOrDefaultAsync(
                 order =>
                 order.Name == OrderDto.Name && 
-                order.Description == OrderDto.Description && 
                 order.ShippingAddress.ToString() == OrderDto.Address &&
                 order.TrackingNumber == OrderDto.TrackingNumber);
 

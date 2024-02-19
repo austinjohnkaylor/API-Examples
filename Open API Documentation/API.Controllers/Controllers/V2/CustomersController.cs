@@ -1,17 +1,16 @@
-using Microsoft.AspNetCore.Mvc;
 using API.Controllers.EntityFramework;
-using API.Controllers.Models.V1;
+using API.Controllers.Models.V2;
 using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace API.Controllers.Controllers.V1
+namespace API.Controllers.Controllers.V2
 {
     /// <summary>
     /// An API controller for interacting with the Customer entity.
     /// </summary>
     /// <param name="context">The SimpleStore database context</param>
-    [ApiVersion( 1.0 )]
-    [ApiVersion( 0.9, Deprecated = true )]
+    [ApiVersion(2.0)]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomersController(SimpleStoreDbContext context) : ControllerBase

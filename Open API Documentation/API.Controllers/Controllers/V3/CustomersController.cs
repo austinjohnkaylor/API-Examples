@@ -1,17 +1,16 @@
-using Microsoft.AspNetCore.Mvc;
 using API.Controllers.EntityFramework;
-using API.Controllers.Models.V1;
+using API.Controllers.Models.V3;
 using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace API.Controllers.Controllers.V1
+namespace API.Controllers.Controllers.V3
 {
     /// <summary>
     /// An API controller for interacting with the Customer entity.
     /// </summary>
     /// <param name="context">The SimpleStore database context</param>
-    [ApiVersion( 1.0 )]
-    [ApiVersion( 0.9, Deprecated = true )]
+    [ApiVersion(3.0)]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomersController(SimpleStoreDbContext context) : ControllerBase
@@ -107,8 +106,7 @@ namespace API.Controllers.Controllers.V1
             Customer? customerInDatabase = await context.Customers.FirstOrDefaultAsync(
                 c =>
                 c.FirstName == customerDto.FirstName && 
-                c.LastName == customerDto.LastName && 
-                c.Email == customerDto.Email);
+                c.LastName == customerDto.LastName);
 
             if (customerInDatabase == null)
                 return NotFound();
