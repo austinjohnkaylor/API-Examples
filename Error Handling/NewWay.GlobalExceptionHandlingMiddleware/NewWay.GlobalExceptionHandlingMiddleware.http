@@ -1,0 +1,6 @@
+@NewWay.GlobalExceptionHandlingMiddleware_HostAddress = http://localhost:5111
+
+GET {{NewWay.GlobalExceptionHandlingMiddleware_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
