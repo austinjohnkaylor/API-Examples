@@ -1,10 +1,9 @@
 using Identity.API;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+builder.Services.AddIdentityApiEndpoints<SchoolSystemUser>()
     .AddEntityFrameworkStores<IdentityDatabaseContext>();
 
 builder.Services.AddDbContext<IdentityDatabaseContext>(
@@ -28,7 +27,7 @@ WebApplication app = builder.Build();
 // - POST /manage/2fa
 // - GET /manage/info
 // - POST /manage/info
-app.MapIdentityApi<IdentityUser>();
+app.MapIdentityApi<SchoolSystemUser>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
