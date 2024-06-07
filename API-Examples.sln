@@ -54,6 +54,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Open API Documentation", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Controllers", "Open API Documentation\API.Controllers\API.Controllers.csproj", "{B674F920-2DF5-4068-8210-C3BB9A06C2BE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "School System using ASPNetCore Identity", "School System using ASPNetCore Identity", "{7CDD75FB-A563-4A07-AEEC-6B5A4A12931C}"
+	ProjectSection(SolutionItems) = preProject
+		School System using ASPNetCore Identity\School System using ASPNetCore Identity.sln = School System using ASPNetCore Identity\School System using ASPNetCore Identity.sln
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
