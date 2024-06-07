@@ -8,7 +8,7 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>()
     .AddEntityFrameworkStores<IdentityDatabaseContext>();
 
 builder.Services.AddDbContext<IdentityDatabaseContext>(
-    options => options.UseInMemoryDatabase("AppDb"));
+    options => options.UseInMemoryDatabase("Identity"));
 
 builder.Services.AddAuthorization();
 
