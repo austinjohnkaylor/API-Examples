@@ -57,6 +57,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "School System using ASPNetCore Identity", "School System using ASPNetCore Identity", "{7CDD75FB-A563-4A07-AEEC-6B5A4A12931C}"
 	ProjectSection(SolutionItems) = preProject
 		School System using ASPNetCore Identity\School System using ASPNetCore Identity.sln = School System using ASPNetCore Identity\School System using ASPNetCore Identity.sln
+		School System using ASPNetCore Identity\README.md = School System using ASPNetCore Identity\README.md
 	EndProjectSection
 EndProject
 Global
