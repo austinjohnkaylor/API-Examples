@@ -17,6 +17,17 @@ builder.Services.AddSwaggerGen();
 
 WebApplication app = builder.Build();
 
+// Maps the following ASP.NET Core Identity endpoints to the API:
+// - POST /register
+// - POST /login
+// - POST /refresh
+// - GET /confirmEmail
+// - POST /resendConfirmationEmail
+// - POST /forgotPassword
+// - POST /resetPassword
+// - POST /manage/2fa
+// - GET /manage/info
+// - POST /manage/info
 app.MapIdentityApi<IdentityUser>();
 
 // Configure the HTTP request pipeline.
