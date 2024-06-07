@@ -13,5 +13,6 @@ A repository that contains a school system API that uses ASP.NET Core Identity f
 - [ASP.NET Core Identity documentation](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0)
 - [ASP.NET Core Identity UI](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-ui?view=aspnetcore-8.0)
 - [Simple ASP.NET Core Identity Example](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authentication/identity-api-authorization/8samples/APIforSPA)
-[Back to solution readme](../README.md)
+- [Sample ASP.NET Core Identity WebAPI for Single Page Apps](https://github.com/dotnet/AspNetCore.Docs.Samples/tree/main/samples/SimpleAuthCookiesAndTokens/SimpleAuthCookiesAndTokens)
+</br></br>[Back to solution readme](../README.md)
 
