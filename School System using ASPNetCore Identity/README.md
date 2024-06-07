@@ -14,5 +14,6 @@ A repository that contains a school system API that uses ASP.NET Core Identity f
 - [ASP.NET Core Identity UI](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-ui?view=aspnetcore-8.0)
 - [Simple ASP.NET Core Identity Example](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authentication/identity-api-authorization/8samples/APIforSPA)
 - [Sample ASP.NET Core Identity WebAPI for Single Page Apps](https://github.com/dotnet/AspNetCore.Docs.Samples/tree/main/samples/SimpleAuthCookiesAndTokens/SimpleAuthCookiesAndTokens)
+- [How to override ASP.NET Core Identity EF Core table names](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/customize-identity-model?view=aspnetcore-8.0#change-tablecolumn-names-and-facets)
 </br></br>[Back to solution readme](../README.md)
 
