@@ -12,3 +12,5 @@ Shows how to implement simple token-based authentication in a .NET 8 ASP.NET Cor
 Shows how to implement in-memory caching in an ASP.NET Core Web API
 ### [Open API Documentation](Open%20API%20Documentation/README.md)
 Shows how to implement Swagger(Swashbuckle), NSwag, and Redoc in minimal and controller-based web APIs
+### [OData](OData/README.md)
+Shows how to implement different things using ASP.NET Web API's, Entity Framework Core, and OData

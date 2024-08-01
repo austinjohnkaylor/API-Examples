@@ -57,6 +57,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OData", "OData", "{DD48A361-A85D-4819-8804-A71EEE037273}"
 	ProjectSection(SolutionItems) = preProject
 		OData\OData.sln = OData\OData.sln
+		OData\README.md = OData\README.md
 	EndProjectSection
 EndProject
 Global
