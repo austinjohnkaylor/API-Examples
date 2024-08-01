@@ -60,6 +60,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OData", "OData", "{DD48A361
 		OData\README.md = OData\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Resources", "Shared Resources", "{387EEBEF-CCBE-4CA1-8AFB-41C5D342AF3B}"
+	ProjectSection(SolutionItems) = preProject
+		Shared Resources\Shared Resources.sln = Shared Resources\Shared Resources.sln
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
