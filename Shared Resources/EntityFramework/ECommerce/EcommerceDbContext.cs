@@ -1,7 +1,6 @@
-﻿using System.Runtime.Intrinsics.Arm;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace API.Examples.SharedResources.EntityFramework;
+namespace API.Examples.SharedResources.EntityFramework.ECommerce;
 
 public class EcommerceDbContext(DbContextOptions<EcommerceDbContext> options) : DbContext(options)
 {

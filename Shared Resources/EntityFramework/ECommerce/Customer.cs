@@ -1,4 +1,4 @@
-﻿namespace API.Examples.SharedResources.EntityFramework;
+﻿namespace API.Examples.SharedResources.EntityFramework.ECommerce;
 
 // Customer.cs
 public class Customer

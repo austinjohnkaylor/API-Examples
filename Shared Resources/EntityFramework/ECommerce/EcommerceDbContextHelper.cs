@@ -1,6 +1,6 @@
 ﻿using Bogus;
 
-namespace API.Examples.SharedResources.EntityFramework;
+namespace API.Examples.SharedResources.EntityFramework.ECommerce;
 
 /// <summary>
 /// Helper and extension methods for the <see cref="EcommerceDbContext"/> class.
