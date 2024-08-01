@@ -2,6 +2,8 @@
 A repository containing examples of how to implement different things in ASP.NET Core Web APIs
 
 ## Projects
+### [Shared Resources](Shared%20Resources/README.md)
+Contains resources that are shared across multiple projects. This includes things like shared code, shared data, and shared documentation
 ### [Uri Versioning](Uri%20Versioning/README.md)
 Shows how to version an ASP.NET Core Web API by URL
 ### [Model State Validation](Model%20State%20Validation/README.md)
