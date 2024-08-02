@@ -11,18 +11,21 @@ namespace API.Examples.OData.SimpleCrudWebApi.Controllers
     [ApiController]
     public class StudentsController(SchoolSystemDbContext context) : ODataController
     {
+        // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
         public IActionResult Get()
         {
             return Ok(context.Students);
         }
 
+        // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
         public IActionResult Get([FromODataUri] int key)
         {
             return Ok(context.Students.Find(key));
         }
 
+        // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
         public IActionResult Post([FromBody] Student student)
         {
@@ -31,6 +34,7 @@ namespace API.Examples.OData.SimpleCrudWebApi.Controllers
             return Created(student);
         }
 
+        // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
         public IActionResult Put([FromODataUri] int key, [FromBody] Student student)
         {
@@ -40,6 +44,7 @@ namespace API.Examples.OData.SimpleCrudWebApi.Controllers
             return Updated(student);
         }
 
+        // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
         public IActionResult Patch([FromODataUri] int key, [FromBody] Delta<Student> student)
         {
@@ -49,6 +54,7 @@ namespace API.Examples.OData.SimpleCrudWebApi.Controllers
             return Updated(entity);
         }
 
+        // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
         public IActionResult Delete([FromODataUri] int key)
         {
