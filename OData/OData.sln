@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCrudWebApi", "SimpleCrudWebApi\SimpleCrudWebApi.csproj", "{A5F3FC0D-5C79-4DF6-A593-2633BF4C7223}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "..\Shared Resources\EntityFramework\EntityFramework.csproj", "{78F42ED5-9E14-45B8-8C6E-0F0C867ABB03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{A5F3FC0D-5C79-4DF6-A593-2633BF4C7223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5F3FC0D-5C79-4DF6-A593-2633BF4C7223}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5F3FC0D-5C79-4DF6-A593-2633BF4C7223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78F42ED5-9E14-45B8-8C6E-0F0C867ABB03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78F42ED5-9E14-45B8-8C6E-0F0C867ABB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78F42ED5-9E14-45B8-8C6E-0F0C867ABB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78F42ED5-9E14-45B8-8C6E-0F0C867ABB03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
