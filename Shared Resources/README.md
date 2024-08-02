@@ -1,15 +1,14 @@
 # Shared Resources
 This directory contains resources that are shared across multiple projects. This includes things like shared code, shared data, and shared documentation.
 
-## Projects
-### EntityFramework
+# Projects
+## EntityFramework
 This project contains the shared Entity Framework code that is used by the other projects. This includes the `DbContext` and the `DbSet` classes.
-#### ECommerceDbContext
-This class is the `DbContext` for the ECommerce database. It contains the `DbSet` properties for the `Product` and `Order` classes.
-#### SchoolSystemDbContext
-This class is the `DbContext` for the School System database. It contains the `DbSet` properties for the `Student` and `Course` classes.
-
-Relationships between Entities
+### ECommerce
+This folder contains the Entity Framework classes for the ECommerce database.
+### SchoolSystem
+This folder contains the Entity Framework classes for the SchoolSystem database.
+#### Relationships between Entities
 
 1. **Student**
     - **Properties**: `StudentId`, `FirstName`, `LastName`, `Email`, `GradeLevel`
