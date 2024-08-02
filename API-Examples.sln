@@ -66,6 +66,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Resources", "Shared 
 		Shared Resources\README.md = Shared Resources\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "Shared Resources\EntityFramework\EntityFramework.csproj", "{60E342B7-162E-47B8-B734-31520AAA75DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,7 @@ Global
 		{15BFFDDC-A7C3-4F3E-A2AF-FD04B027ADF6} = {2CA573A8-05A6-4843-BAE7-DD3DCC4E4533}
 		{FE312A27-37AB-4B7C-93E1-A4CFD7FC4CF8} = {55AED7BF-9C67-4E9F-886C-5A9ED72FB1F4}
 		{B674F920-2DF5-4068-8210-C3BB9A06C2BE} = {9188A808-12E0-48E2-98D3-64EF49F6B8E1}
+		{60E342B7-162E-47B8-B734-31520AAA75DD} = {387EEBEF-CCBE-4CA1-8AFB-41C5D342AF3B}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{954AFD39-CB38-4258-9130-BA3511524BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -132,5 +135,9 @@ Global
 		{B674F920-2DF5-4068-8210-C3BB9A06C2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B674F920-2DF5-4068-8210-C3BB9A06C2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B674F920-2DF5-4068-8210-C3BB9A06C2BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E342B7-162E-47B8-B734-31520AAA75DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E342B7-162E-47B8-B734-31520AAA75DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E342B7-162E-47B8-B734-31520AAA75DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E342B7-162E-47B8-B734-31520AAA75DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
