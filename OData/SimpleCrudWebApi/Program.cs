@@ -7,7 +7,11 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 ODataConventionModelBuilder modelBuilder = new();
+modelBuilder.EnumType<GradeLevel>();
 modelBuilder.EntitySet<Student>("Students");
+modelBuilder.EntitySet<Teacher>("Teachers");
+modelBuilder.EntitySet<Course>("Courses");
+modelBuilder.EntitySet<Enrollment>("Enrollments");
 
 builder.Services.AddControllers()
     .AddOData(options => options
