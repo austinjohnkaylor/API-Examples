@@ -11,7 +11,7 @@ public static class SchoolSystemODataEdmModelBuilder
         ODataConventionModelBuilder builder = new();
         builder.EnumType<GradeLevel>();
         var students = builder.EntitySet<Student>("Students");
-        students.EntityType.Ignore(student => student.Email); // Ignore the Email property --> https://learn.microsoft.com/en-us/odata/webapi/odata-security#edm-security
+        //students.EntityType.Ignore(student => student.Email); // Ignore the Email property --> https://learn.microsoft.com/en-us/odata/webapi/odata-security#edm-security
         builder.EntitySet<Teacher>("Teachers");
         builder.EntitySet<Course>("Courses");
         builder.EntitySet<Enrollment>("Enrollments");
