@@ -19,7 +19,6 @@ builder.Services.AddControllers()
 builder.Services.AddDbContext<ODataBasicCrudDbContext>(options =>
     options.UseInMemoryDatabase("ODataBasicCrudDb"));
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
