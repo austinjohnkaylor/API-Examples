@@ -1,0 +1,3 @@
+### GET all Students ordered by GradeLevel
+GET {{base-address}}/odata/students?$orderby=GradeLevel
+###
