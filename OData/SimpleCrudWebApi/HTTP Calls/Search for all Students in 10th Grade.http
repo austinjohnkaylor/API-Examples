@@ -1,0 +1,4 @@
+### Search for all students in 10th Grade
+### https://learn.microsoft.com/en-us/odata/concepts/queryoptions-usage#search
+GET {{base-address}}/odata/students?$search=TenthGrade
+###
