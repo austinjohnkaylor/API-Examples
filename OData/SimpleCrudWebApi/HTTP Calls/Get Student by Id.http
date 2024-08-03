@@ -1,4 +1,5 @@
 ### Get the first Student by it's Id with the parameterized URL
+### https://learn.microsoft.com/en-us/odata/webapi/first-odata-api#query
 GET {{base-address}}/odata/Students(1)
 ###
 
