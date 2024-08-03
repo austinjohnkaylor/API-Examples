@@ -1,0 +1,4 @@
+### Get a Student by Id that does not exist
+### https://learn.microsoft.com/en-us/odata/webapi-8/tutorials/basic-crud?tabs=net60%2Cvisual-studio-2022%2Cvisual-studio%2Cvs2022#request-a-single-entity
+GET {{base-address}}/odata/Students(101)
+###
