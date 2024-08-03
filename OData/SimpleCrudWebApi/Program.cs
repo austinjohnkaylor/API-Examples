@@ -10,7 +10,7 @@ builder.Services.AddControllers()
         .EnableQueryFeatures(100)
         .AddRouteComponents(
             routePrefix: "odata",
-            model: ODataEdmModelBuilder.GetEdmModel()
+            model: SchoolSystemODataEdmModelBuilder.GetEdmModel()
             )
     );
 

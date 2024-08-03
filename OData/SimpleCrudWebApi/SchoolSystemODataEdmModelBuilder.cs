@@ -4,7 +4,7 @@ using Microsoft.OData.ModelBuilder;
 
 namespace API.Examples.OData.SimpleCrudWebApi;
 
-public static class ODataEdmModelBuilder
+public static class SchoolSystemODataEdmModelBuilder
 {
     public static IEdmModel GetEdmModel()
     {
