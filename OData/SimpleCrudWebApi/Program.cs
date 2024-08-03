@@ -1,8 +1,10 @@
 using API.Examples.OData.SimpleCrudWebApi;
+using API.Examples.OData.SimpleCrudWebApi.Configuration;
 using API.Examples.SharedResources.EntityFramework.ODataBasicCrud;
 using API.Examples.SharedResources.EntityFramework.SchoolSystem;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -41,8 +43,13 @@ app.MapControllers();
 // Seed database
 using (IServiceScope serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
-    ODataBasicCrudDbContext db = serviceScope.ServiceProvider.GetRequiredService<ODataBasicCrudDbContext>();
-    ODataBasicCrudDbHelper.PopulateDatabase(db);
+    DatabaseOptions options = serviceScope.ServiceProvider.GetRequiredService<IOptions<DatabaseOptions>>().Value;
+    if (options.SeedData)
+    {
+        ODataBasicCrudDbContext db = serviceScope.ServiceProvider.GetRequiredService<ODataBasicCrudDbContext>();
+        ODataBasicCrudDbHelper.PopulateDatabase(db);
+    }
+    
 }
 
 app.Run();
