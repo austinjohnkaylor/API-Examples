@@ -1,0 +1,4 @@
+### Get students with Ids and First Names, skip the first 10 and take the next 5
+### https://learn.microsoft.com/en-us/odata/webapi/first-odata-api#skip
+GET {{base-address}}/odata/students?$select=Id,FirstName&$skip=10&$top=5
+###
