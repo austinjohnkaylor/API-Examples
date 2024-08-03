@@ -1,0 +1,3 @@
+### GET All Students' Ids and First Names
+GET {{base-address}}/odata/students?$select=Id,FirstName
+###
