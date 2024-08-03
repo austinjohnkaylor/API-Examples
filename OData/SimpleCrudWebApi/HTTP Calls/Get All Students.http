@@ -1,0 +1,3 @@
+GET {{base-address}}/odata/Students
+Accept: application/json
+###
