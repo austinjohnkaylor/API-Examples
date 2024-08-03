@@ -46,7 +46,7 @@ using (IServiceScope serviceScope = app.Services.GetRequiredService<IServiceScop
     if (options.SeedData)
     {
         ODataBasicCrudDbContext db = serviceScope.ServiceProvider.GetRequiredService<ODataBasicCrudDbContext>();
-        ODataBasicCrudDbHelper.PopulateDatabase(db);
+        ODataBasicCrudDbHelper.PopulateDatabase(db, options.CustomersToGenerate);
     }
 }
 
