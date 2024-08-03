@@ -1,0 +1,4 @@
+### Get all Students but skip the first 10
+### https://learn.microsoft.com/en-us/odata/webapi/first-odata-api#skip
+GET {{base-address}}/odata/students?$skip=10
+###
