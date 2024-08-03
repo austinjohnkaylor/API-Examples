@@ -41,15 +41,14 @@ app.MapControllers();
 // Seed database
 using (IServiceScope serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
-    DatabaseOptions options = serviceScope.ServiceProvider.GetRequiredService<IOptions<DatabaseOptions>>().Value;
-    if (options.SeedData)
-    {
         ODataBasicCrudDbContext db = serviceScope.ServiceProvider.GetRequiredService<ODataBasicCrudDbContext>();
-        ODataBasicCrudDbHelper.PopulateDatabase(db, options.CustomersToGenerate);
-    }
+        ODataBasicCrudDbHelper.PopulateDatabase(db, 10000);
 }
 
 app.UseODataRouteDebug();
 app.UseRouting();
 
 app.Run();
+
+// Make the implicit Program class public so test projects can access it
+public partial class Program { }

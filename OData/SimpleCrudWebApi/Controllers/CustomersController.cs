@@ -1,8 +1,10 @@
 ﻿using API.Examples.SharedResources.EntityFramework.ODataBasicCrud;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Deltas;
+using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Examples.OData.SimpleCrudWebApi.Controllers;
 
@@ -11,16 +13,14 @@ namespace API.Examples.OData.SimpleCrudWebApi.Controllers;
 /// </summary>
 public class CustomersController(ODataBasicCrudDbContext db) : ODataController
 {
-    private readonly ODataBasicCrudDbContext db = db;
-    
     /// <summary>
     /// Get all <see cref="Customer"/>s
     /// </summary>
     /// <returns></returns>
     [EnableQuery]
-    public ActionResult<IQueryable<Customer>> Get()
+    public async Task<ActionResult<IQueryable<Customer>>> Get()
     {
-        return Ok(db.Customers);
+        return Ok(await db.Customers.AsQueryable().ToListAsync());
     }
 
     /// <summary>
@@ -29,9 +29,9 @@ public class CustomersController(ODataBasicCrudDbContext db) : ODataController
     /// <param name="key"></param>
     /// <returns></returns>
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/tutorials/basic-crud?tabs=net60%2Cvisual-studio-2022%2Cvisual-studio%2Cvs2022#request-a-single-entity</remarks>
-    public ActionResult GetById([FromRoute] int key)
+    public async Task<ActionResult> GetById([FromRoute] int key)
     {
-        Customer? customer = db.Customers.Find(key);
+        Customer? customer = await db.Customers.FindAsync(key);
 
         if (customer == null)
         {
@@ -47,11 +47,11 @@ public class CustomersController(ODataBasicCrudDbContext db) : ODataController
     /// <param name="customer"></param>
     /// <returns></returns>
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/tutorials/basic-crud?tabs=net60%2Cvisual-studio-2022%2Cvisual-studio%2Cvs2022#create-an-entity</remarks>
-    public ActionResult Post([FromBody] Customer customer)
+    public async Task<ActionResult> Post([FromBody] Customer customer)
     {
-        db.Customers.Add(customer);
+        await db.Customers.AddAsync(customer);
     
-        db.SaveChanges();
+        await db.SaveChangesAsync();
 
         return Created(customer);
     }
@@ -63,9 +63,9 @@ public class CustomersController(ODataBasicCrudDbContext db) : ODataController
     /// <param name="updatedCustomer"></param>
     /// <returns></returns>
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/tutorials/basic-crud?tabs=net60%2Cvisual-studio-2022%2Cvisual-studio%2Cvs2022#update-an-entity-using-put</remarks>
-    public ActionResult Put([FromRoute] int key, [FromBody] Customer updatedCustomer)
+    public async Task<ActionResult> Put([FromRoute] int key, [FromBody] Customer updatedCustomer)
     {
-        Customer? customer = db.Customers.SingleOrDefault(d => d.Id == key);
+        Customer? customer = await db.Customers.FindAsync(key);
 
         if (customer == null)
         {
@@ -77,7 +77,7 @@ public class CustomersController(ODataBasicCrudDbContext db) : ODataController
         customer.CreditLimit = updatedCustomer.CreditLimit;
         customer.CustomerSince = updatedCustomer.CustomerSince;
 
-        db.SaveChanges();
+        await db.SaveChangesAsync();
 
         return Updated(customer);
     }
@@ -89,9 +89,9 @@ public class CustomersController(ODataBasicCrudDbContext db) : ODataController
     /// <param name="delta"></param>
     /// <returns></returns>
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/tutorials/basic-crud?tabs=net60%2Cvisual-studio-2022%2Cvisual-studio%2Cvs2022#update-an-entity-using-patch</remarks>
-    public ActionResult Patch([FromRoute] int key, [FromBody] Delta<Customer> delta)
+    public async Task<ActionResult> Patch([FromRoute] int key, [FromBody] Delta<Customer> delta)
     {
-        Customer? customer = db.Customers.SingleOrDefault(d => d.Id == key);
+        Customer? customer = await db.Customers.FindAsync(key);
 
         if (customer == null)
         {
@@ -100,7 +100,7 @@ public class CustomersController(ODataBasicCrudDbContext db) : ODataController
 
         delta.Patch(customer);
 
-        db.SaveChanges();
+        await db.SaveChangesAsync();
 
         return Updated(customer);
     }
@@ -111,16 +111,16 @@ public class CustomersController(ODataBasicCrudDbContext db) : ODataController
     /// <param name="key"></param>
     /// <returns></returns>
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/tutorials/basic-crud?tabs=net60%2Cvisual-studio-2022%2Cvisual-studio%2Cvs2022#delete-an-entity</remarks>
-    public ActionResult Delete([FromRoute] int key)
+    public async Task<ActionResult> Delete([FromRoute] int key)
     {
-        Customer? customer = db.Customers.SingleOrDefault(d => d.Id == key);
+        Customer? customer = await db.Customers.FindAsync(key);
 
         if (customer != null)
         {
             db.Customers.Remove(customer);
         }
 
-        db.SaveChanges();
+        await db.SaveChangesAsync();
 
         return NoContent();
     }
