@@ -11,7 +11,7 @@ public static class SchoolSystemDbContextHelper
             .RuleFor(s => s.FirstName, f => f.Name.FirstName())
             .RuleFor(s => s.LastName, f => f.Name.LastName())
             .RuleFor(s => s.Email, f => f.Internet.Email())
-            .RuleFor(s => s.GradeLevel, f => f.Random.String2(1, "ABCDF"));
+            .RuleFor(s => s.GradeLevel, f => f.PickRandom<GradeLevel>());
 
         var teacherFaker = new Faker<Teacher>()
             .RuleFor(t => t.TeacherId, f => f.IndexFaker + 1)
