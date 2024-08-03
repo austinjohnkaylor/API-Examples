@@ -1,4 +1,0 @@
-### Get only twelfth grade Students
-### https://learn.microsoft.com/en-us/odata/webapi/first-odata-api#filter
-GET {{base-address}}/odata/students?$filter=GradeLevel eq 'TwelfthGrade'
-###

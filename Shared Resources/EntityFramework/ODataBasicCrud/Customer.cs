@@ -9,10 +9,10 @@ namespace API.Examples.SharedResources.EntityFramework.ODataBasicCrud;
 public class Customer
 {
     public int Id { get; init; }
-    public string Name { get; init; }
-    public CustomerType CustomerType { get; init; }
-    public decimal CreditLimit { get; init; }
-    public DateTime CustomerSince { get; init; }
+    public string Name { get; set; }
+    public CustomerType CustomerType { get; set; }
+    public decimal CreditLimit { get; set; }
+    public DateTime CustomerSince { get; set; }
 
     public static Faker<Customer> GetCustomerFaker()
     {

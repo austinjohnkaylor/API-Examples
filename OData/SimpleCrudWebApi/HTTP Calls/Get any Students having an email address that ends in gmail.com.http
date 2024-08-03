@@ -1,4 +1,0 @@
-### Get any Students having an email address that ends in gmail.com
-### https://learn.microsoft.com/en-us/odata/concepts/queryoptions-usage#lambda-operators
-GET {{base-address}}/odata/Students?$filter=endswith(Email, 'gmail.com')
-###

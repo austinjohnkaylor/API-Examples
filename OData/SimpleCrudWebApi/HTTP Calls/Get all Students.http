@@ -1,5 +1,0 @@
-### GET all Students
-### https://learn.microsoft.com/en-us/odata/webapi/first-odata-api
-GET {{base-address}}/odata/Students
-Accept: application/json
-###

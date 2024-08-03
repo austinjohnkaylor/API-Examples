@@ -1,4 +1,0 @@
-### Get all Students ordered by Id descending
-### https://learn.microsoft.com/en-us/odata/concepts/queryoptions-usage#orderby
-GET {{base-address}}/odata/students?$orderby=Id desc
-###

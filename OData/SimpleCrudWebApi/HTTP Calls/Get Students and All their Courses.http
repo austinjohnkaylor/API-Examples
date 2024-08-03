@@ -1,7 +1,0 @@
-### GET all Students and all their Courses
-### https://learn.microsoft.com/en-us/odata/webapi/odata-expand#expand
-### Students have a navigation property called Enrollments that points to a collection of Enrollment entities.
-### Each Enrollment entity has a navigation property called Course that points to a Course entity.
-### Since the Enrollments property is a collection, we can use the $expand query option to include the related Course entities in the response.
-GET {{base-address}}/odata/students?$expand=Enrollments($expand=Course)
-###

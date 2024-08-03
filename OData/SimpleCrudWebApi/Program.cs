@@ -50,4 +50,7 @@ using (IServiceScope serviceScope = app.Services.GetRequiredService<IServiceScop
     }
 }
 
+app.UseODataRouteDebug();
+app.UseRouting();
+
 app.Run();

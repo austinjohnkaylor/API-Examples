@@ -1,4 +1,0 @@
-### GET All Students' Ids and First Names
-### https://learn.microsoft.com/en-us/odata/webapi/first-odata-api#select
-GET {{base-address}}/odata/students?$select=Id,FirstName
-###

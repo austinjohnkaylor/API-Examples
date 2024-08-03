@@ -1,4 +1,0 @@
-### GET all Students ordered by GradeLevel
-### https://learn.microsoft.com/en-us/odata/webapi/first-odata-api#orderby
-GET {{base-address}}/odata/students?$orderby=GradeLevel
-###
