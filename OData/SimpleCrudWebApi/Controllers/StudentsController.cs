@@ -7,27 +7,27 @@ using Microsoft.AspNetCore.OData.Routing.Controllers;
 
 namespace API.Examples.OData.SimpleCrudWebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    //[Route("api/[controller]")]
+    //[ApiController]
     public class StudentsController(SchoolSystemDbContext context) : ODataController
     {
         // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
-        public IActionResult Get()
+        public ActionResult Get()
         {
             return Ok(context.Students);
         }
 
         // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
-        public IActionResult Get([FromODataUri] int key)
+        public ActionResult Get([FromODataUri] int key)
         {
             return Ok(context.Students.Find(key));
         }
 
         // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
-        public IActionResult Post([FromBody] Student student)
+        public ActionResult Post([FromBody] Student student)
         {
             context.Students.Add(student);
             context.SaveChanges();
@@ -36,7 +36,7 @@ namespace API.Examples.OData.SimpleCrudWebApi.Controllers
 
         // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
-        public IActionResult Put([FromODataUri] int key, [FromBody] Student student)
+        public ActionResult Put([FromODataUri] int key, [FromBody] Student student)
         {
             student.StudentId = key;
             context.Students.Update(student);
@@ -46,9 +46,9 @@ namespace API.Examples.OData.SimpleCrudWebApi.Controllers
 
         // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
-        public IActionResult Patch([FromODataUri] int key, [FromBody] Delta<Student> student)
+        public ActionResult Patch([FromODataUri] int key, [FromBody] Delta<Student> student)
         {
-            var entity = context.Students.Find(key);
+            Student? entity = context.Students.Find(key);
             student.Patch(entity);
             context.SaveChanges();
             return Updated(entity);
@@ -56,9 +56,9 @@ namespace API.Examples.OData.SimpleCrudWebApi.Controllers
 
         // This attribute is responsible for applying the query options that are passed in the query string
         [EnableQuery]
-        public IActionResult Delete([FromODataUri] int key)
+        public ActionResult Delete([FromODataUri] int key)
         {
-            var entity = context.Students.Find(key);
+            Student? entity = context.Students.Find(key);
             context.Students.Remove(entity);
             context.SaveChanges();
             return NoContent();
