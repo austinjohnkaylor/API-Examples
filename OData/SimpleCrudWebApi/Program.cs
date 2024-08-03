@@ -1,7 +1,6 @@
 using API.Examples.OData.SimpleCrudWebApi;
 using API.Examples.OData.SimpleCrudWebApi.Configuration;
 using API.Examples.SharedResources.EntityFramework.ODataBasicCrud;
-using API.Examples.SharedResources.EntityFramework.SchoolSystem;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -49,7 +48,6 @@ using (IServiceScope serviceScope = app.Services.GetRequiredService<IServiceScop
         ODataBasicCrudDbContext db = serviceScope.ServiceProvider.GetRequiredService<ODataBasicCrudDbContext>();
         ODataBasicCrudDbHelper.PopulateDatabase(db);
     }
-    
 }
 
 app.Run();
