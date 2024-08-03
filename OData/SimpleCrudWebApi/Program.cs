@@ -1,24 +1,16 @@
+using API.Examples.OData.SimpleCrudWebApi;
 using API.Examples.SharedResources.EntityFramework.SchoolSystem;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OData.ModelBuilder;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-ODataConventionModelBuilder modelBuilder = new();
-modelBuilder.EnumType<GradeLevel>();
-modelBuilder.EntitySet<Student>("Students");
-modelBuilder.EntitySet<Teacher>("Teachers");
-modelBuilder.EntitySet<Course>("Courses");
-modelBuilder.EntitySet<Enrollment>("Enrollments");
 
 builder.Services.AddControllers()
     .AddOData(options => options
         .EnableQueryFeatures(100)
         .AddRouteComponents(
             routePrefix: "odata",
-            model: modelBuilder.GetEdmModel()
+            model: ODataEdmModelBuilder.GetEdmModel()
             )
     );
 
@@ -46,7 +38,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 // Seed database
-using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+using (IServiceScope serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
     SchoolSystemDbContext db = serviceScope.ServiceProvider.GetRequiredService<SchoolSystemDbContext>();
     SchoolSystemDbContextHelper.SeedData(db);
