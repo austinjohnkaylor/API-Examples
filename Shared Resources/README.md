@@ -5,7 +5,7 @@ This directory contains resources that are shared across multiple projects. This
 ## OData
 This project contains the shared OData code that is used by the other projects. This includes the `ODataController` and the `ODataModelBuilder` classes.
 ### CustomSkipTokenHandler
-- This class contains the custom `SkipTokenHandler` implementation that is used to handle the `$skiptoken` query option.
+- This folder contains the custom `SkipTokenHandler` implementation that is used to handle the `$skiptoken` query option.
 - It implements a custom skip token handler using the tutorial [Creating a custom skip token handler](https://learn.microsoft.com/en-us/odata/webapi-8/tutorials/custom-skiptokenhandler?tabs=net60%2Cvisual-studio#creating-a-custom-skip-token-handler)
 ## EntityFramework
 This project contains the shared Entity Framework code that is used by the other projects. This includes the `DbContext` and the `DbSet` classes.
