@@ -40,4 +40,23 @@ public class CustomerControllerTests
         string actualResponse = await response.Content.ReadAsStringAsync();
         Assert.Equal(expectedResponse.ToFormattedJsonString(), actualResponse.ToFormattedJsonString());
     }
+
+    /// <summary>
+    /// When querying the Get endpoint on the Customers controller using the $expand query option to expand the Orders property, the response should contain the Orders property of each Customer
+    /// </summary>
+    [Fact]
+    public async Task Get_ExpandQueryOption_WhenExpandingCustomersToTheirOrders_ShouldReturnCustomersAndTheirOrders()
+    {
+        // Arrange
+        const string requestUri = "/odata/Customers?$expand=Orders";
+        string expectedResponse = await File.ReadAllTextAsync("../../../ExpectedResponses/Get_ExpandQueryOption_WhenExpandingCustomersToTheirOrders_ShouldReturnCustomersAndTheirOrders.json");
+        
+        // Act
+        HttpResponseMessage response = await _httpClient.GetAsync(requestUri);
+
+        // Assert
+        response.EnsureSuccessStatusCode();
+        string actualResponse = await response.Content.ReadAsStringAsync();
+        Assert.Equal(expectedResponse.ToFormattedJsonString(), actualResponse.ToFormattedJsonString());
+    }
 }

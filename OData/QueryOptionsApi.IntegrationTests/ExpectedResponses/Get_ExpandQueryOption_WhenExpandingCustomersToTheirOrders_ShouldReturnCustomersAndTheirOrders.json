@@ -1,0 +1,56 @@
+{
+  "@odata.context": "http://localhost/odata/$metadata#Customers(Orders())",
+  "value": [
+    {
+      "Id": 1,
+      "Name": "Customer 1",
+      "Age": 31,
+      "Orders": [
+        {
+          "Id": 1002,
+          "Price": 35,
+          "Quantity": 2
+        },
+        {
+          "Id": 1001,
+          "Price": 10,
+          "Quantity": 10
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "Name": "Customer 2",
+      "Age": 32,
+      "Orders": [
+        {
+          "Id": 1004,
+          "Price": 20,
+          "Quantity": 20
+        },
+        {
+          "Id": 1003,
+          "Price": 70,
+          "Quantity": 5
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "Name": "Customer 3",
+      "Age": 33,
+      "Orders": [
+        {
+          "Id": 1006,
+          "Price": 15,
+          "Quantity": 50
+        },
+        {
+          "Id": 1005,
+          "Price": 40,
+          "Quantity": 15
+        }
+      ]
+    }
+  ]
+}

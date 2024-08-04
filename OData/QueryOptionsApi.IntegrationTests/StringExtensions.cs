@@ -35,4 +35,10 @@ public static class StringExtensions
         JsonNode formattedJson = JsonNode.Parse(unformattedJson) ?? new JsonObject();
         return formattedJson.ToJsonString();
     }
+    
+    public static string ReplaceCarriageReturns(this string input)
+    {
+        string cleanedInput = input.Replace("\r\n", "");
+        return cleanedInput;
+    }
 }

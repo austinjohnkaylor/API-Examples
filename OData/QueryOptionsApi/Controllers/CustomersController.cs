@@ -19,9 +19,9 @@ public class CustomersController : ODataController
 
     private static readonly List<Customer> Customers =
     [
-        new Customer { Id = 1, Name = "Customer 1", Age = 31, Orders = [Orders[0], Orders[1]] },
-        new Customer { Id = 2, Name = "Customer 2", Age = 32, Orders = [Orders[2], Orders[3]] },
-        new Customer { Id = 3, Name = "Customer 3", Age = 33, Orders = [Orders[4], Orders[5]] }
+        new Customer { Id = 1, Name = "Customer 1", Age = 31, Orders = [Orders[1], Orders[0]] },
+        new Customer { Id = 2, Name = "Customer 2", Age = 32, Orders = [Orders[3], Orders[2]] },
+        new Customer { Id = 3, Name = "Customer 3", Age = 33, Orders = [Orders[5], Orders[4]] }
     ];
          
     /// <summary>
