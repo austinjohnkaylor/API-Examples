@@ -43,3 +43,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+/// <summary>
+/// Allows integration tests to run the web application.
+/// </summary>
+public partial class Program {}
