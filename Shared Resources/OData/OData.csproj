@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>API.Examples.SharedResources.OData</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Asp.Versioning.OData" Version="8.1.0" />
+      <PackageReference Include="Asp.Versioning.OData.ApiExplorer" Version="8.1.0" />
+      <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.2.5" />
+    </ItemGroup>
+
+</Project>
