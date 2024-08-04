@@ -23,8 +23,13 @@ public class CustomersController : ODataController
         new Customer { Id = 2, Name = "Customer 2", Age = 32, Orders = [Orders[2], Orders[3]] },
         new Customer { Id = 3, Name = "Customer 3", Age = 33, Orders = [Orders[4], Orders[5]] }
     ];
-
-    [EnableQuery]
+         
+    /// <summary>
+    ///  Get all <see cref="Customers"/>
+    /// </summary>
+    /// <returns></returns>
+    /// <remarks>When the controller returns an IQueryable or IActionResult type, the LINQ provider converts the LINQ expression into a query, e.g., Entity Framework (EF) Core will convert the LINQ expression into an SQL statement</remarks>
+    [EnableQuery] // an action filter that parses, validates, and applies the OData query parameters to the query
     public IActionResult Get()
     {
         return Ok(Customers);
