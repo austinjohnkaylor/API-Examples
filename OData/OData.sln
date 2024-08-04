@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCrudWebApi", "SimpleC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "..\Shared Resources\EntityFramework\EntityFramework.csproj", "{78F42ED5-9E14-45B8-8C6E-0F0C867ABB03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryOptionsApi", "QueryOptionsApi\QueryOptionsApi.csproj", "{E9DAFF73-9C36-430C-BDE8-12EE0BD3B154}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{78F42ED5-9E14-45B8-8C6E-0F0C867ABB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F42ED5-9E14-45B8-8C6E-0F0C867ABB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78F42ED5-9E14-45B8-8C6E-0F0C867ABB03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9DAFF73-9C36-430C-BDE8-12EE0BD3B154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DAFF73-9C36-430C-BDE8-12EE0BD3B154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DAFF73-9C36-430C-BDE8-12EE0BD3B154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DAFF73-9C36-430C-BDE8-12EE0BD3B154}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,9 +1,7 @@
 using API.Examples.OData.SimpleCrudWebApi;
-using API.Examples.OData.SimpleCrudWebApi.Configuration;
 using API.Examples.SharedResources.EntityFramework.ODataBasicCrud;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
