@@ -66,4 +66,45 @@ public class CustomSkipTokenHandler : DefaultSkipTokenHandler
         };
         return builder.Uri;
     }
+    
+    /// <summary>
+    /// Should transform the query and return a new query that implements the paging logic, i.e. ensures that we only return records from where we left off in the last page, and that we do not exceed the page size
+    /// </summary>
+    /// <param name="query">The IQueryable of type T that represents the query that will fetch the results</param>
+    /// <param name="skipTokenQueryOption">Contains information about the $skiptoken query option</param>
+    /// <param name="querySettings">The query settings to use while applying the $skiptoken (e.g. the page size)</param>
+    /// <param name="queryOptions">Contains information about the other query options in the request</param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public override IQueryable<T> ApplyTo<T>(IQueryable<T> query, SkipTokenQueryOption skipTokenQueryOption, ODataQuerySettings querySettings, ODataQueryOptions queryOptions)
+    {
+        SkipTokenQueryOption decodedSkipTokenQueryOption = DecodeSkipToken(skipTokenQueryOption);
+        return base.ApplyTo(query, decodedSkipTokenQueryOption, querySettings, queryOptions);
+    }
+
+    /// <summary>
+    /// Should transform the query and return a new query that implements the paging logic, i.e. ensures that we only return records from where we left off in the last page, and that we do not exceed the page size
+    /// </summary>
+    /// <param name="query">The IQueryable that represents the query that will fetch the results</param>
+    /// <param name="skipTokenQueryOption">Contains information about the $skiptoken query option</param>
+    /// <param name="querySettings">The query settings to use while applying the $skiptoken (e.g. the page size)</param>
+    /// <param name="queryOptions">Contains information about the other query options in the request</param>
+    /// <returns></returns>
+    public override IQueryable ApplyTo(IQueryable query, SkipTokenQueryOption skipTokenQueryOption, ODataQuerySettings querySettings, ODataQueryOptions queryOptions)
+    {
+        SkipTokenQueryOption decodedSkipTokenQueryOption = DecodeSkipToken(skipTokenQueryOption);
+        return base.ApplyTo(query, decodedSkipTokenQueryOption, querySettings, queryOptions);
+    }
+
+    /// <summary>
+    /// Extracts the value of the $skiptoken, decodes it from its base64 encoding then creates a new SkipTokenQueryOption instance with the decoded value
+    /// </summary>
+    /// <param name="skipTokenQueryOption"></param>
+    /// <returns></returns>
+    private static SkipTokenQueryOption DecodeSkipToken(SkipTokenQueryOption skipTokenQueryOption)
+    {
+        string encodedSkipToken = skipTokenQueryOption.RawValue;
+        string decodedSkipToken = Encoding.UTF8.GetString(Convert.FromBase64String(encodedSkipToken));
+        return new SkipTokenQueryOption(decodedSkipToken, skipTokenQueryOption.Context);
+    }
 }
