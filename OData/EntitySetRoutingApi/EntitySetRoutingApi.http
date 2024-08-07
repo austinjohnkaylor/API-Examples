@@ -1,0 +1,6 @@
+@EntitySetRoutingApi_HostAddress = http://localhost:5100
+
+GET {{EntitySetRoutingApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

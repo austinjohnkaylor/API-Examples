@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryOptionsApi", "QueryOpt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryOptionsApi.IntegrationTests", "QueryOptionsApi.IntegrationTests\QueryOptionsApi.IntegrationTests.csproj", "{9862B134-FBE3-4266-9AB6-CD7CE3233EFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitySetRoutingApi", "EntitySetRoutingApi\EntitySetRoutingApi.csproj", "{3209B58D-1B33-4DC6-BAA0-572EF598153E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitySetRoutingApi.IntegrationTests", "EntitySetRoutingApi.IntegrationTests\EntitySetRoutingApi.IntegrationTests.csproj", "{586203CD-A9C4-42EA-AC4C-9E22926A9A6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{9862B134-FBE3-4266-9AB6-CD7CE3233EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9862B134-FBE3-4266-9AB6-CD7CE3233EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9862B134-FBE3-4266-9AB6-CD7CE3233EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3209B58D-1B33-4DC6-BAA0-572EF598153E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3209B58D-1B33-4DC6-BAA0-572EF598153E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3209B58D-1B33-4DC6-BAA0-572EF598153E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3209B58D-1B33-4DC6-BAA0-572EF598153E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{586203CD-A9C4-42EA-AC4C-9E22926A9A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{586203CD-A9C4-42EA-AC4C-9E22926A9A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{586203CD-A9C4-42EA-AC4C-9E22926A9A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{586203CD-A9C4-42EA-AC4C-9E22926A9A6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
