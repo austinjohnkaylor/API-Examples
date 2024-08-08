@@ -19,4 +19,10 @@ public class ShapesController : ODataController
     {
         return Shapes;
     }
+    
+    [EnableQuery]
+    public ActionResult<IEnumerable<Rectangle>> GetFromRectangle()
+    {
+        return Shapes.OfType<Rectangle>().ToList();
+    }
 }
