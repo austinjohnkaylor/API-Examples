@@ -25,4 +25,12 @@ public class ShapesController : ODataController
     {
         return Shapes.OfType<Rectangle>().ToList();
     }
+    
+    public ActionResult Post([FromBody] Shape shape)
+    {
+        Shapes.Add(shape);
+
+        // generates the location at which the resource has been created and returns it as a response header
+        return Created(shape);
+    }
 }
