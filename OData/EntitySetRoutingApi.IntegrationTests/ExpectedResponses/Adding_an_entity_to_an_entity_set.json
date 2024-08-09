@@ -1,0 +1,5 @@
+﻿{
+  "@odata.context": "http://localhost/odata/$metadata#Shapes/$entity",
+  "Id": 4,
+  "Area": 36.0
+}

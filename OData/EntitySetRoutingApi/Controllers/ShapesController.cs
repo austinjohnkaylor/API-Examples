@@ -33,4 +33,11 @@ public class ShapesController : ODataController
         // generates the location at which the resource has been created and returns it as a response header
         return Created(shape);
     }
+    
+    public ActionResult PostFromCircle([FromBody] Circle circle)
+    {
+        Shapes.Add(circle);
+
+        return Created(circle);
+    }
 }

@@ -1,0 +1,6 @@
+﻿{
+  "@odata.context": "http://localhost/odata/$metadata#Shapes/EntitySetRoutingApi.Models.Circle/$entity",
+  "Id": 5,
+  "Area": 6.16,
+  "Radius": 1.4
+}
