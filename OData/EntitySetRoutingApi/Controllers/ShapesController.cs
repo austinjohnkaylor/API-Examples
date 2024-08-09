@@ -190,7 +190,7 @@ public class ShapesController : ODataController
 
         delta.Patch(shape);
 
-        return Ok();
+        return NoContent();
     }
     
     /// <summary>
@@ -211,7 +211,7 @@ public class ShapesController : ODataController
 
         delta.Patch(shape);
 
-        return Ok();
+        return NoContent();
     }
     
     /// <summary>

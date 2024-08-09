@@ -339,6 +339,82 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
     }
 
+    /// <summary>
+    /// The following PATCH request patches a Rectangle entity with the key value of 3:
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#patching-a-single-entity</remarks>
+    [Fact]
+    public async Task Patching_a_single_entity()
+    {
+        // Arrange
+        const string requestUri = "odata/Shapes(3)";
+        HttpContent requestBody =
+            new StringContent(
+                await File.ReadAllTextAsync("../../../RequestBodies/Patching a single entity.json"));
+        requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        
+        // Act
+        HttpResponseMessage response = await _httpClient.PatchAsync(requestUri, requestBody);
+        
+        // Assert
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
+    
+    /// <summary>
+    /// The following PATCH request patches a Circle derived entity with the key value of 2
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#patching-a-single-derived-entity</remarks>
+    [Fact]
+    public async Task Patching_a_single_derived_entity()
+    {
+        // Arrange
+        const string requestUri = "odata/Shapes(2)/EntitySetRoutingApi.Models.Circle";
+        HttpContent requestBody =
+            new StringContent(
+                await File.ReadAllTextAsync("../../../RequestBodies/Patching a single derived entity.json"));
+        requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        
+        // Act
+        HttpResponseMessage response = await _httpClient.PatchAsync(requestUri, requestBody);
+        
+        // Assert
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
+    
+    /// <summary>
+    /// The following request deletes a Shape entity with the key value of 3:
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#deleting-a-single-entity</remarks>
+    [Fact]
+    public async Task Deleting_a_single_entity()
+    {
+        // Arrange
+        const string requestUri = "odata/Shapes(3)";
+        
+        // Act
+        HttpResponseMessage response = await _httpClient.DeleteAsync(requestUri);
+        
+        // Assert
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
+    
+    /// <summary>
+    /// The following request deletes a Circle derived entity with the key value of 2:
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#deleting-a-single-derived-entity</remarks>
+    [Fact]
+    public async Task Deleting_a_single_derived_entity()
+    {
+        // Arrange
+        const string requestUri = "odata/Shapes(2)/EntitySetRoutingApi.Models.Circle";
+        
+        // Act
+        HttpResponseMessage response = await _httpClient.DeleteAsync(requestUri);
+        
+        // Assert
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
+
     
     #region Not Tests
 
