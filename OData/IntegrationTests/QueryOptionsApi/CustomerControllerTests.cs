@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
+﻿using API.Examples.OData.IntegrationTests.Extensions;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Prog = API.Examples.OData.QueryOptionsApi.Program;
 
-namespace QueryOptionsApi.IntegrationTests;
+namespace API.Examples.OData.IntegrationTests.QueryOptionsApi;
 
 /// <summary>
 /// Integration Tests for the <see cref="API.Examples.OData.QueryOptionsApi.Controllers.CustomersController"/>
@@ -8,11 +10,11 @@ namespace QueryOptionsApi.IntegrationTests;
 public class CustomerControllerTests
 {
     private readonly HttpClient _httpClient;
-    private readonly WebApplicationFactory<Program> _application;
+    private readonly WebApplicationFactory<Prog> _application;
 
     public CustomerControllerTests()
     {
-        _application = new WebApplicationFactory<Program>();
+        _application = new WebApplicationFactory<Prog>();
         _httpClient = _application.CreateClient();
     }
 
@@ -25,7 +27,7 @@ public class CustomerControllerTests
     {
         // Arrange
         const string requestUri = "/odata/Customers?$select=Name";
-        string expectedResponse = await File.ReadAllTextAsync("../../../ExpectedResponses/Get_SelectName.json");
+        string expectedResponse = await File.ReadAllTextAsync("../../../QueryOptionsApi/ExpectedResponses/Get_SelectName.json");
         
         // Act
         HttpResponseMessage response = await _httpClient.GetAsync(requestUri);
@@ -44,7 +46,7 @@ public class CustomerControllerTests
     {
         // Arrange
         const string requestUri = "/odata/Customers?$expand=Orders";
-        string expectedResponse = await File.ReadAllTextAsync("../../../ExpectedResponses/Get_ExpandOrders.json");
+        string expectedResponse = await File.ReadAllTextAsync("../../../QueryOptionsApi/ExpectedResponses/Get_ExpandOrders.json");
         
         // Act
         HttpResponseMessage response = await _httpClient.GetAsync(requestUri);
@@ -63,7 +65,7 @@ public class CustomerControllerTests
     {
         // Arrange
         const string requestUri = "odata/Customers?$select=Name&$expand=Orders($filter=Id gt 1004)&$orderby=Name desc";
-        string expectedResponse = await File.ReadAllTextAsync("../../../ExpectedResponses/Get_SelectName_ExpandOrders_FilterIdGreaterThan1004_OrderByNameDescending.json");
+        string expectedResponse = await File.ReadAllTextAsync("../../../QueryOptionsApi/ExpectedResponses/Get_SelectName_ExpandOrders_FilterIdGreaterThan1004_OrderByNameDescending.json");
         
         // Act
         HttpResponseMessage response = await _httpClient.GetAsync(requestUri);

@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "..\Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryOptionsApi", "QueryOptionsApi\QueryOptionsApi.csproj", "{E9DAFF73-9C36-430C-BDE8-12EE0BD3B154}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryOptionsApi.IntegrationTests", "QueryOptionsApi.IntegrationTests\QueryOptionsApi.IntegrationTests.csproj", "{9862B134-FBE3-4266-9AB6-CD7CE3233EFB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitySetRoutingApi", "EntitySetRoutingApi\EntitySetRoutingApi.csproj", "{3209B58D-1B33-4DC6-BAA0-572EF598153E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonApi", "SingletonApi\SingletonApi.csproj", "{B1446973-E808-434F-880B-E72C5635C056}"
@@ -38,10 +36,6 @@ Global
 		{E9DAFF73-9C36-430C-BDE8-12EE0BD3B154}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9DAFF73-9C36-430C-BDE8-12EE0BD3B154}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9DAFF73-9C36-430C-BDE8-12EE0BD3B154}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9862B134-FBE3-4266-9AB6-CD7CE3233EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9862B134-FBE3-4266-9AB6-CD7CE3233EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9862B134-FBE3-4266-9AB6-CD7CE3233EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9862B134-FBE3-4266-9AB6-CD7CE3233EFB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3209B58D-1B33-4DC6-BAA0-572EF598153E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3209B58D-1B33-4DC6-BAA0-572EF598153E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3209B58D-1B33-4DC6-BAA0-572EF598153E}.Release|Any CPU.ActiveCfg = Release|Any CPU
