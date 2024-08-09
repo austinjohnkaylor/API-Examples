@@ -1,9 +1,9 @@
-﻿using API.Examples.SingletonApi.Models;
+﻿using API.Examples.OData.SingletonApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Deltas;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 
-namespace API.Examples.SingletonApi.Controllers;
+namespace API.Examples.OData.SingletonApi.Controllers;
 
 public class CompanyController : ODataController
 {

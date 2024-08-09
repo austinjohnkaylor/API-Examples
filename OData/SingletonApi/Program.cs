@@ -1,4 +1,4 @@
-using API.Examples.SingletonApi.Models;
+using API.Examples.OData.SingletonApi.Models;
 using Microsoft.AspNetCore.OData;
 using Microsoft.OData.ModelBuilder;
 

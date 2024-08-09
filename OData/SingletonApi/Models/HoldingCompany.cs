@@ -1,4 +1,4 @@
-﻿namespace API.Examples.SingletonApi.Models;
+﻿namespace API.Examples.OData.SingletonApi.Models;
 
 public class HoldingCompany : Company
 {
