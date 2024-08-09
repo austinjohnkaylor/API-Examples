@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitySetRoutingApi", "Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitySetRoutingApi.IntegrationTests", "EntitySetRoutingApi.IntegrationTests\EntitySetRoutingApi.IntegrationTests.csproj", "{586203CD-A9C4-42EA-AC4C-9E22926A9A6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonApi", "SingletonApi\SingletonApi.csproj", "{B1446973-E808-434F-880B-E72C5635C056}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{586203CD-A9C4-42EA-AC4C-9E22926A9A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{586203CD-A9C4-42EA-AC4C-9E22926A9A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{586203CD-A9C4-42EA-AC4C-9E22926A9A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1446973-E808-434F-880B-E72C5635C056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1446973-E808-434F-880B-E72C5635C056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1446973-E808-434F-880B-E72C5635C056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1446973-E808-434F-880B-E72C5635C056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
