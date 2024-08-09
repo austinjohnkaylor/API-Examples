@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Http.Headers;
 using EntitySetRoutingApi.Controllers;
+using EntitySetRoutingApi.Models;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace EntitySetRoutingApi.IntegrationTests;
@@ -9,14 +11,14 @@ namespace EntitySetRoutingApi.IntegrationTests;
 /// <summary>
 /// Integration test cases for the <see cref="ShapesController"/>
 /// </summary>
-public class ShapesControllerTests
+public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program>>, IDisposable
 {
     private readonly HttpClient _httpClient;
 
-    public ShapesControllerTests()
+    public ShapesControllerTests(WebApplicationFactory<Program> application)
     {
-        WebApplicationFactory<Program> application = new();
         _httpClient = application.CreateClient();
+        ResetShapes();
     }
 
     /// <summary>
@@ -231,5 +233,23 @@ public class ShapesControllerTests
 
         // Assert
         Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
+
+    [ExcludeFromCodeCoverage]
+    public void Dispose()
+    {
+        ResetShapes();
+    }
+    
+    [ExcludeFromCodeCoverage]
+    private static void ResetShapes()
+    {
+        ShapesController.Shapes.Clear();
+        ShapesController.Shapes.AddRange(new List<Shape>
+        {
+            new Rectangle { Id = 1, Length = 7, Width = 4, Area = 28 },
+            new Circle { Id = 2, Radius = 3.5, Area = 38.5 },
+            new Rectangle { Id = 3, Length = 8, Width = 5, Area = 40 }
+        });
     }
 }

@@ -8,7 +8,7 @@ namespace EntitySetRoutingApi.Controllers;
 
 public class ShapesController : ODataController
 {
-    private static readonly List<Shape> Shapes =
+    public static readonly List<Shape> Shapes =
     [
         new Rectangle { Id = 1, Length = 7, Width = 4, Area = 28 },
         new Circle { Id = 2, Radius = 3.5, Area = 38.5 },
