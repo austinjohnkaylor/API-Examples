@@ -60,4 +60,21 @@ public class ShapesController : ODataController
 
         return NoContent();
     }
+    
+    /// <summary>
+    /// To patch a collection of derived entities in an entity set, the client sends a PATCH request to that entity set's URL with the fully-qualified name of the derived type appended at the end.
+    /// </summary>
+    /// <param name="deltaSet"></param>
+    /// <returns></returns>
+    public ActionResult PatchFromRectangle([FromBody] DeltaSet<Rectangle> deltaSet)
+    {
+        foreach (IDeltaSetItem? deltaSetItem in deltaSet)
+        {
+            var delta = (Delta<Rectangle>)deltaSetItem;
+            if (!delta.TryGetPropertyValue("Id", out object idAsObject)) continue;
+            if (Shapes.SingleOrDefault(d => d.Id.Equals(idAsObject)) is Rectangle rectangle) delta.Patch(rectangle);
+        }
+
+        return NoContent();
+    }
 }

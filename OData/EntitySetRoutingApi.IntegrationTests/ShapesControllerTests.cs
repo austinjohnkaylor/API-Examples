@@ -12,12 +12,11 @@ namespace EntitySetRoutingApi.IntegrationTests;
 public class ShapesControllerTests
 {
     private readonly HttpClient _httpClient;
-    private readonly WebApplicationFactory<Program> _application;
 
     public ShapesControllerTests()
     {
-        _application = new WebApplicationFactory<Program>();
-        _httpClient = _application.CreateClient();
+        WebApplicationFactory<Program> application = new();
+        _httpClient = application.CreateClient();
     }
 
     /// <summary>
@@ -183,8 +182,10 @@ public class ShapesControllerTests
     }
     
     /// <summary>
-    /// 
+    /// The following PATCH request patches shape 1 (a circle) and shape 2 (a rectangle):
     /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entityset-routing?tabs=net60%2Cvisual-studio#patching-a-collection-of-entities</remarks>
+    /// <returns>204 No Content if the Patch is successful</returns>
     [Fact]
     public async Task Patching_a_collection_of_entities()
     {
@@ -208,4 +209,27 @@ public class ShapesControllerTests
         Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entityset-routing?tabs=net60%2Cvisual-studio#patching-a-collection-of-derived-entities</remarks>
+    /// <returns>The following PATCH request patches the rectangles with ID value of 1 and 3 respectively:</returns>
+    [Fact]
+    public async Task Patching_a_collection_of_derived_entities()
+    {
+        /*
+         * The route template for this request is: PATCH ~/{entityset}/{cast}
+         */
+        // Arrange
+        const string requestUri = "odata/Shapes/EntitySetRoutingApi.Models.Rectangle";
+        HttpContent requestBody =
+            new StringContent(
+                await File.ReadAllTextAsync("../../../RequestBodies/Patching_a_collection_of_derived_entities.json"));
+        requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        // Act
+        HttpResponseMessage response = await _httpClient.PatchAsync(requestUri, requestBody);
+
+        // Assert
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
 }
