@@ -143,4 +143,20 @@ public class ShapesController : ODataController
 
         return NoContent();
     }
+    
+    public ActionResult PutCircle([FromRoute] int key, [FromBody] Circle circle)
+    {
+        Circle? item = Shapes.OfType<Circle>().SingleOrDefault(d => d.Id.Equals(key));
+
+        if (item == null)
+        {
+            return NotFound();
+        }
+
+        item.Id = circle.Id;
+        item.Radius = circle.Radius;
+        item.Area = circle.Area;
+
+        return NoContent();
+    }
 }

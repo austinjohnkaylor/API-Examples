@@ -290,7 +290,7 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
     }
 
     /// <summary>
-    /// 
+    /// The following request updates a single rectangle entity with the key value of 1
     /// </summary>
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#updating-a-single-entity</remarks>
     /// <returns></returns>
@@ -307,6 +307,30 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         HttpContent requestBody =
             new StringContent(
                 await File.ReadAllTextAsync("../../../RequestBodies/Updating_a_single_entity.json"));
+        requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        // Act
+        HttpResponseMessage response = await _httpClient.PutAsync(requestUri, requestBody);
+        
+        // Assert
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
+
+    /// <summary>
+    /// The following PUT request updates a Circle derived entity with the key value of 2:
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#updating-a-single-derived-entity</remarks>
+    /// <returns></returns>
+    [Fact]
+    public async Task Updating_a_single_derived_entity()
+    {
+        // The route templates for this request are:
+        //      PUT ~/{entityset}({key})/{cast}
+        //      PUT ~/{entityset}/{key}/{cast}
+        // Arrange
+        const string requestUri = "odata/Shapes(2)/EntitySetRoutingApi.Models.Circle";
+        HttpContent requestBody =
+            new StringContent(
+                await File.ReadAllTextAsync("../../../RequestBodies/Updating_a_single_derived_entity.json"));
         requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         // Act
         HttpResponseMessage response = await _httpClient.PutAsync(requestUri, requestBody);
