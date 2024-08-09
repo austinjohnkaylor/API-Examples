@@ -1,4 +1,5 @@
-﻿using EntitySetRoutingApi.Models;
+﻿using System.Reflection;
+using EntitySetRoutingApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Deltas;
 using Microsoft.AspNetCore.OData.Query;
@@ -87,5 +88,59 @@ public class ShapesController : ODataController
         
 
         return shape;
+    }
+    
+    /// <summary>
+    /// Gets a circle by key
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    public ActionResult<Circle> GetCircle([FromRoute] int key)
+    {
+        Circle? circle = Shapes.OfType<Circle>().SingleOrDefault(d => d.Id.Equals(key));
+
+        if (circle == null)
+        {
+            return NotFound();
+        }
+
+        return circle;
+    }
+    
+    /// <summary>
+    /// Can be Put or PutShape
+    /// </summary>
+    /// <param name="key">Key of the target entity</param>
+    /// <param name="shape">The shape from the request body being updated</param>
+    /// <returns></returns>
+    public ActionResult Put([FromRoute] int key, [FromBody] Shape shape)
+    {
+        Shape? item = Shapes.SingleOrDefault(d => d.Id.Equals(key));
+
+        if (item == null)
+        {
+            return NotFound();
+        }
+
+        if (item.GetType() != shape.GetType())
+        {
+            return BadRequest();
+        }
+
+        // Update properties using reflection
+        foreach (PropertyInfo propertyInfo in shape.GetType().GetProperties(
+                     BindingFlags.Public | BindingFlags.Instance))
+        {
+            PropertyInfo? itemPropertyInfo = item.GetType().GetProperty(
+                propertyInfo.Name,
+                BindingFlags.Public | BindingFlags.Instance);
+
+            if (itemPropertyInfo != null && itemPropertyInfo.CanWrite)
+            {
+                itemPropertyInfo.SetValue(item, propertyInfo.GetValue(shape));
+            }
+        }
+
+        return NoContent();
     }
 }

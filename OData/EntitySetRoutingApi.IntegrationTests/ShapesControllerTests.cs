@@ -265,6 +265,59 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         Assert.Equal(expectedResponse.ToFormattedJsonString(), actualResponse.ToFormattedJsonString());
     }
 
+    /// <summary>
+    /// The following request returns a single Circle derived entity with the key value of 2:
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#retrieving-a-single-derived-entity</remarks>
+    /// <returns></returns>
+    [Fact]
+    public async Task Retrieving_a_single_derived_entity()
+    {
+        // Arrange
+        const string requestUri = "odata/Shapes(2)/EntitySetRoutingApi.Models.Circle";
+        string expectedResponse =
+            await File.ReadAllTextAsync("../../../ExpectedResponses/Retrieving_a_single_derived_entity.json");
+        /*
+         * For the above request to be conventionally-routed, a controller action named GetCircle that accepts the key parameter is expected:
+         */
+        // Act
+        HttpResponseMessage response = await _httpClient.GetAsync(requestUri);
+        
+        // Assert
+        response.EnsureSuccessStatusCode();
+        string actualResponse = await response.Content.ReadAsStringAsync();
+        Assert.Equal(expectedResponse.ToFormattedJsonString(), actualResponse.ToFormattedJsonString());
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#updating-a-single-entity</remarks>
+    /// <returns></returns>
+    [Fact]
+    public async Task Updating_a_single_entity()
+    {
+        /*
+         * The route templates for this request are:
+                PUT ~/{entityset}({key})
+                PUT ~/{entityset}/{key}
+         */
+        // Arrange
+        const string requestUri = "odata/Shapes(1)";
+        HttpContent requestBody =
+            new StringContent(
+                await File.ReadAllTextAsync("../../../RequestBodies/Updating_a_single_entity.json"));
+        requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        // Act
+        HttpResponseMessage response = await _httpClient.PutAsync(requestUri, requestBody);
+        
+        // Assert
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
+
+    
+    #region Not Tests
+
     [ExcludeFromCodeCoverage]
     public void Dispose()
     {
@@ -283,4 +336,6 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
             new Rectangle { Id = 3, Length = 8, Width = 5, Area = 40 }
         });
     }
+
+    #endregion
 }
