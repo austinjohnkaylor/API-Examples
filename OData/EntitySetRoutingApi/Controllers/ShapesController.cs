@@ -1,5 +1,6 @@
 ﻿using EntitySetRoutingApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Deltas;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 
@@ -39,5 +40,24 @@ public class ShapesController : ODataController
         Shapes.Add(circle);
 
         return Created(circle);
+    }
+    
+    /// <summary>
+    /// The semantics of PATCH are to merge the content in the request payload with the entity's or entities' current state, applying the update only to those components specified in the request body. 
+    /// </summary>
+    /// <param name="deltaSet"></param>
+    /// <remarks>To patch a collection of entities in an entity set, the client sends a PATCH request to that entity set's URL</remarks>
+    /// <returns></returns>
+    public ActionResult Patch([FromBody] DeltaSet<Shape> deltaSet)
+    {
+        foreach (IDeltaSetItem? deltaSetItem in deltaSet)
+        {
+            var delta = (Delta<Shape>)deltaSetItem;
+            if (!delta.TryGetPropertyValue("Id", out object idAsObject)) continue;
+            Shape? shape = Shapes.SingleOrDefault(d => d.Id.Equals(idAsObject));
+            if (shape != null) delta.Patch(shape);
+        }
+
+        return NoContent();
     }
 }

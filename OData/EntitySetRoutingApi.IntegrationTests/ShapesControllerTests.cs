@@ -181,5 +181,31 @@ public class ShapesControllerTests
         string actualResponse = await response.Content.ReadAsStringAsync();
         Assert.Equal(expectedResponse.ToFormattedJsonString(), actualResponse.ToFormattedJsonString());
     }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    [Fact]
+    public async Task Patching_a_collection_of_entities()
+    {
+        /*
+         * The route template for this request is: PATCH ~/{entityset}
+         */
+        // Arrange
+        const string requestUri = "odata/Shapes";
+        HttpContent requestBody =
+            new StringContent(
+                await File.ReadAllTextAsync("../../../RequestBodies/Patching_a_collection_of_entities.json"));
+        requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        
+        /*
+         * For the above request to be conventionally-routed, a controller action named Patch (or PatchShapes) that accepts a parameter of type DeltaSet<Shape> decorated with FromBody attribute is expected
+         */
+        // Act
+        HttpResponseMessage response = await _httpClient.PatchAsync(requestUri, requestBody);
+        
+        // Assert
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+    }
 
 }
