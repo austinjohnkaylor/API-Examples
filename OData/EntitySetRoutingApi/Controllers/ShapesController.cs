@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
-using EntitySetRoutingApi.Models;
+using API.Examples.OData.EntitySetRoutingApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Deltas;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 
-namespace EntitySetRoutingApi.Controllers;
+namespace API.Examples.OData.EntitySetRoutingApi.Controllers;
 
 public class ShapesController : ODataController
 {

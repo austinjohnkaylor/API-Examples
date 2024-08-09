@@ -2,20 +2,22 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Http.Headers;
-using EntitySetRoutingApi.Controllers;
-using EntitySetRoutingApi.Models;
+using API.Examples.OData.EntitySetRoutingApi.Controllers;
+using API.Examples.OData.EntitySetRoutingApi.Models;
+using API.Examples.OData.IntegrationTests.Extensions;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Prog = API.Examples.OData.EntitySetRoutingApi.Program;
 
-namespace EntitySetRoutingApi.IntegrationTests;
+namespace API.Examples.OData.IntegrationTests.EntitySetRoutingApi;
 
 /// <summary>
 /// Integration test cases for the <see cref="ShapesController"/>
 /// </summary>
-public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program>>, IDisposable
+public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Prog>>, IDisposable
 {
     private readonly HttpClient _httpClient;
 
-    public ShapesControllerTests(WebApplicationFactory<Program> application)
+    public ShapesControllerTests(WebApplicationFactory<Prog> application)
     {
         _httpClient = application.CreateClient();
         ResetShapes();
@@ -32,7 +34,7 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         // Arrange
         const string requestUri = "/odata/Shapes";
         string expectedResponse =
-            await File.ReadAllTextAsync("../../../ExpectedResponses/Retrieving an entity set.json");
+            await File.ReadAllTextAsync("../../../EntitySetRoutingApi/ExpectedResponses/Retrieving an entity set.json");
 
         // Act
         HttpResponseMessage response = await _httpClient.GetAsync(requestUri);
@@ -73,9 +75,9 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
     public async Task Retrieving_a_collection_of_derived_entities()
     {
         // Arrange
-        const string requestUri = "odata/Shapes/EntitySetRoutingApi.Models.Rectangle";
+        const string requestUri = "odata/Shapes/API.Examples.OData.EntitySetRoutingApi.Models.Rectangle";
         string expectedResponse =
-            await File.ReadAllTextAsync("../../../ExpectedResponses/Retrieving_a_collection_of_derived_entities.json");
+            await File.ReadAllTextAsync("../../../EntitySetRoutingApi/ExpectedResponses/Retrieving_a_collection_of_derived_entities.json");
         /*
          * For the above request to be conventionally-routed, a controller action named GetFromRectangle (or GetShapesFromRectangle) is expected
          * in the ShapesController. The action should return a collection of Rectangle entities.
@@ -100,7 +102,7 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
     public async Task Retrieving_the_count_of_a_collection_of_derived_entities()
     {
         // Arrange
-        const string requestUri = "odata/Shapes/EntitySetRoutingApi.Models.Rectangle/$count";
+        const string requestUri = "odata/Shapes/API.Examples.OData.EntitySetRoutingApi.Models.Rectangle/$count";
         const int expectedResponse = 2;
 
         /*
@@ -128,10 +130,10 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         // Arrange
         const string requestUri = "odata/Shapes";
         string expectedResponse =
-            await File.ReadAllTextAsync("../../../ExpectedResponses/Adding_an_entity_to_an_entity_set.json");
+            await File.ReadAllTextAsync("../../../EntitySetRoutingApi/ExpectedResponses/Adding_an_entity_to_an_entity_set.json");
         HttpContent requestBody =
             new StringContent(
-                await File.ReadAllTextAsync("../../../RequestBodies/Adding_an_entity_to_an_entity_set.json"));
+                await File.ReadAllTextAsync("../../../EntitySetRoutingApi/RequestBodies/Adding_an_entity_to_an_entity_set.json"));
         requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         
         /*
@@ -162,12 +164,12 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
             The route template for this request is: POST ~/{entityset}/{cast}
          */
         // Arrange
-        const string requestUri = "odata/Shapes/EntitySetRoutingApi.Models.Circle";
+        const string requestUri = "odata/Shapes/API.Examples.OData.EntitySetRoutingApi.Models.Circle";
         string expectedResponse =
-            await File.ReadAllTextAsync("../../../ExpectedResponses/Adding_a_derived_entity_to_an_entity_set.json");
+            await File.ReadAllTextAsync("../../../EntitySetRoutingApi/ExpectedResponses/Adding_a_derived_entity_to_an_entity_set.json");
         HttpContent requestBody =
             new StringContent(
-                await File.ReadAllTextAsync("../../../RequestBodies/Adding_a_derived_entity_to_an_entity_set.json"));
+                await File.ReadAllTextAsync("../../../EntitySetRoutingApi/RequestBodies/Adding_a_derived_entity_to_an_entity_set.json"));
         requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         
         /*
@@ -198,7 +200,7 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         const string requestUri = "odata/Shapes";
         HttpContent requestBody =
             new StringContent(
-                await File.ReadAllTextAsync("../../../RequestBodies/Patching_a_collection_of_entities.json"));
+                await File.ReadAllTextAsync("../../../EntitySetRoutingApi/RequestBodies/Patching_a_collection_of_entities.json"));
         requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         
         /*
@@ -223,10 +225,10 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
          * The route template for this request is: PATCH ~/{entityset}/{cast}
          */
         // Arrange
-        const string requestUri = "odata/Shapes/EntitySetRoutingApi.Models.Rectangle";
+        const string requestUri = "odata/Shapes/API.Examples.OData.EntitySetRoutingApi.Models.Rectangle";
         HttpContent requestBody =
             new StringContent(
-                await File.ReadAllTextAsync("../../../RequestBodies/Patching_a_collection_of_derived_entities.json"));
+                await File.ReadAllTextAsync("../../../EntitySetRoutingApi/RequestBodies/Patching_a_collection_of_derived_entities.json"));
         requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         // Act
         HttpResponseMessage response = await _httpClient.PatchAsync(requestUri, requestBody);
@@ -251,7 +253,7 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         // Arrange
         const string requestUri = "odata/Shapes(1)";
         string expectedResponse =
-            await File.ReadAllTextAsync("../../../ExpectedResponses/Retrieving_a_single_entity.json");
+            await File.ReadAllTextAsync("../../../EntitySetRoutingApi/ExpectedResponses/Retrieving_a_single_entity.json");
         
         /*
          * For the above request to be conventionally-routed, a controller action named Get (or GetShape) that accepts the key parameter is expected
@@ -274,9 +276,9 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
     public async Task Retrieving_a_single_derived_entity()
     {
         // Arrange
-        const string requestUri = "odata/Shapes(2)/EntitySetRoutingApi.Models.Circle";
+        const string requestUri = "odata/Shapes(2)/API.Examples.OData.EntitySetRoutingApi.Models.Circle";
         string expectedResponse =
-            await File.ReadAllTextAsync("../../../ExpectedResponses/Retrieving_a_single_derived_entity.json");
+            await File.ReadAllTextAsync("../../../EntitySetRoutingApi/ExpectedResponses/Retrieving_a_single_derived_entity.json");
         /*
          * For the above request to be conventionally-routed, a controller action named GetCircle that accepts the key parameter is expected:
          */
@@ -306,7 +308,7 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         const string requestUri = "odata/Shapes(1)";
         HttpContent requestBody =
             new StringContent(
-                await File.ReadAllTextAsync("../../../RequestBodies/Updating_a_single_entity.json"));
+                await File.ReadAllTextAsync("../../../EntitySetRoutingApi/RequestBodies/Updating_a_single_entity.json"));
         requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         // Act
         HttpResponseMessage response = await _httpClient.PutAsync(requestUri, requestBody);
@@ -327,10 +329,10 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         //      PUT ~/{entityset}({key})/{cast}
         //      PUT ~/{entityset}/{key}/{cast}
         // Arrange
-        const string requestUri = "odata/Shapes(2)/EntitySetRoutingApi.Models.Circle";
+        const string requestUri = "odata/Shapes(2)/API.Examples.OData.EntitySetRoutingApi.Models.Circle";
         HttpContent requestBody =
             new StringContent(
-                await File.ReadAllTextAsync("../../../RequestBodies/Updating_a_single_derived_entity.json"));
+                await File.ReadAllTextAsync("../../../EntitySetRoutingApi/RequestBodies/Updating_a_single_derived_entity.json"));
         requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         // Act
         HttpResponseMessage response = await _httpClient.PutAsync(requestUri, requestBody);
@@ -350,7 +352,7 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         const string requestUri = "odata/Shapes(3)";
         HttpContent requestBody =
             new StringContent(
-                await File.ReadAllTextAsync("../../../RequestBodies/Patching a single entity.json"));
+                await File.ReadAllTextAsync("../../../EntitySetRoutingApi/RequestBodies/Patching a single entity.json"));
         requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         
         // Act
@@ -368,10 +370,10 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
     public async Task Patching_a_single_derived_entity()
     {
         // Arrange
-        const string requestUri = "odata/Shapes(2)/EntitySetRoutingApi.Models.Circle";
+        const string requestUri = "odata/Shapes(2)/API.Examples.OData.EntitySetRoutingApi.Models.Circle";
         HttpContent requestBody =
             new StringContent(
-                await File.ReadAllTextAsync("../../../RequestBodies/Patching a single derived entity.json"));
+                await File.ReadAllTextAsync("../../../EntitySetRoutingApi/RequestBodies/Patching a single derived entity.json"));
         requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         
         // Act
@@ -406,7 +408,7 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
     public async Task Deleting_a_single_derived_entity()
     {
         // Arrange
-        const string requestUri = "odata/Shapes(2)/EntitySetRoutingApi.Models.Circle";
+        const string requestUri = "odata/Shapes(2)/API.Examples.OData.EntitySetRoutingApi.Models.Circle";
         
         // Act
         HttpResponseMessage response = await _httpClient.DeleteAsync(requestUri);

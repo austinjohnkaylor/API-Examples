@@ -1,5 +1,5 @@
 ﻿{
-  "@odata.context": "http://localhost/odata/$metadata#Shapes/EntitySetRoutingApi.Models.Rectangle",
+  "@odata.context": "http://localhost/odata/$metadata#Shapes/API.Examples.OData.EntitySetRoutingApi.Models.Rectangle",
   "value": [
     {
       "Id": 1,

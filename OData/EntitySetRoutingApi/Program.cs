@@ -1,4 +1,4 @@
-using EntitySetRoutingApi.Models;
+using API.Examples.OData.EntitySetRoutingApi.Models;
 using Microsoft.AspNetCore.OData;
 using Microsoft.OData.ModelBuilder;
 
@@ -36,4 +36,7 @@ app.UseEndpoints(endpoints => endpoints.MapControllers());
 
 app.Run();
 
-public partial class Program {}
+namespace API.Examples.OData.EntitySetRoutingApi
+{
+    public partial class Program;
+}

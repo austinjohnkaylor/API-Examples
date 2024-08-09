@@ -2,20 +2,20 @@
   "@odata.context": "http://localhost/odata/$metadata#Shapes",
   "value": [
     {
-      "@odata.type": "#EntitySetRoutingApi.Models.Rectangle",
+      "@odata.type": "#API.Examples.OData.EntitySetRoutingApi.Models.Rectangle",
       "Id": 1,
       "Area": 28.0,
       "Length": 7.0,
       "Width": 4.0
     },
     {
-      "@odata.type": "#EntitySetRoutingApi.Models.Circle",
+      "@odata.type": "#API.Examples.OData.EntitySetRoutingApi.Models.Circle",
       "Id": 2,
       "Area": 38.5,
       "Radius": 3.5
     },
     {
-      "@odata.type": "#EntitySetRoutingApi.Models.Rectangle",
+      "@odata.type": "#API.Examples.OData.EntitySetRoutingApi.Models.Rectangle",
       "Id": 3,
       "Area": 40.0,
       "Length": 8.0,

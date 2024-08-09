@@ -1,5 +1,0 @@
-﻿{
-  "@odata.type": "#EntitySetRoutingApi.Models.Rectangle",
-  "Width": 6,
-  "Area": 48
-}

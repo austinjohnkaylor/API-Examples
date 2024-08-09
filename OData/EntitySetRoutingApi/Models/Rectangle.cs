@@ -1,4 +1,4 @@
-﻿namespace EntitySetRoutingApi.Models;
+﻿namespace API.Examples.OData.EntitySetRoutingApi.Models;
 
 public class Rectangle : Shape
 {

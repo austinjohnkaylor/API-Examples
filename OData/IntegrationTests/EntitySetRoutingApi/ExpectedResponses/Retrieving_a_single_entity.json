@@ -1,0 +1,8 @@
+﻿{
+  "@odata.context": "http://localhost/odata/$metadata#Shapes/API.Examples.OData.EntitySetRoutingApi.Models.Rectangle/$entity",
+  "@odata.type": "#API.Examples.OData.EntitySetRoutingApi.Models.Rectangle",
+  "Id": 1,
+  "Area": 28.0,
+  "Length": 7.0,
+  "Width": 4.0
+}
