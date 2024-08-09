@@ -112,6 +112,7 @@ public class ShapesController : ODataController
     /// </summary>
     /// <param name="key">Key of the target entity</param>
     /// <param name="shape">The shape from the request body being updated</param>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#updating-a-single-derived-entity</remarks>
     /// <returns></returns>
     public ActionResult Put([FromRoute] int key, [FromBody] Shape shape)
     {
@@ -144,6 +145,12 @@ public class ShapesController : ODataController
         return NoContent();
     }
     
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="circle"></param>
+    /// <returns></returns>
     public ActionResult PutCircle([FromRoute] int key, [FromBody] Circle circle)
     {
         Circle? item = Shapes.OfType<Circle>().SingleOrDefault(d => d.Id.Equals(key));
@@ -156,6 +163,93 @@ public class ShapesController : ODataController
         item.Id = circle.Id;
         item.Radius = circle.Radius;
         item.Area = circle.Area;
+
+        return NoContent();
+    }
+    
+    /// <summary>
+    /// Patches a shape by key along with the delta of the shape passed in the request body
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="delta"></param>
+    /// <returns></returns>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#patching-a-single-entity</remarks>
+    public ActionResult Patch([FromRoute] int key, [FromBody] Delta<Shape> delta)
+    {
+        Shape? shape = Shapes.SingleOrDefault(d => d.Id.Equals(key));
+
+        if (shape == null)
+        {
+            return NotFound();
+        }
+
+        if (shape.GetType() != delta.StructuredType)
+        {
+            return BadRequest();
+        }
+
+        delta.Patch(shape);
+
+        return Ok();
+    }
+    
+    /// <summary>
+    /// Patch a circle by key along with the delta of the circle passed in the request body
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#patching-a-single-derived-entity</remarks>
+    /// <param name="key"></param>
+    /// <param name="delta"></param>
+    /// <returns></returns>
+    public ActionResult PatchCircle([FromRoute] int key, [FromBody] Delta<Circle> delta)
+    {
+        Circle? shape = Shapes.OfType<Circle>().SingleOrDefault(d => d.Id.Equals(key));
+
+        if (shape == null)
+        {
+            return NotFound();
+        }
+
+        delta.Patch(shape);
+
+        return Ok();
+    }
+    
+    /// <summary>
+    /// Deletes a shape by key
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#deleting-a-single-entity</remarks>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    public ActionResult DeleteShape([FromRoute] int key)
+    {
+        Shape? shape = Shapes.SingleOrDefault(d => d.Id.Equals(key));
+
+        if (shape == null)
+        {
+            return NotFound();
+        }
+
+        Shapes.Remove(shape);
+
+        return NoContent();
+    }
+    
+    /// <summary>
+    /// Deletes a circle by key
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#deleting-a-single-derived-entity</remarks>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    public ActionResult DeleteCircle([FromRoute] int key)
+    {
+        Circle? shape = Shapes.OfType<Circle>().SingleOrDefault(d => d.Id.Equals(key));
+
+        if (shape == null)
+        {
+            return NotFound();
+        }
+
+        Shapes.Remove(shape);
 
         return NoContent();
     }
