@@ -1,5 +1,6 @@
 using API.Examples.OData.SimpleCrudWebApi;
 using API.Examples.SharedResources.EntityFramework.ODataBasicCrud;
+using Bogus.DataSets;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 
@@ -48,5 +49,8 @@ app.UseRouting();
 
 app.Run();
 
-// Make the implicit Program class public so test projects can access it
-public partial class Program { }
+namespace API.Examples.OData.SimpleCrudWebApi
+{
+    // Make the implicit Program class public so test projects can access it
+    public partial class Program;
+}
