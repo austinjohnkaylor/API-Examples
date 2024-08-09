@@ -77,4 +77,15 @@ public class ShapesController : ODataController
 
         return NoContent();
     }
+    
+    public ActionResult<Shape> Get([FromRoute] int key)
+    {
+        Shape? shape = Shapes.SingleOrDefault(d => d.Id.Equals(key));
+
+        if (shape == null)
+            return NotFound();
+        
+
+        return shape;
+    }
 }

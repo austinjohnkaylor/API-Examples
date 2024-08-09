@@ -235,9 +235,40 @@ public class ShapesControllerTests : IClassFixture<WebApplicationFactory<Program
         Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
     }
 
+    /// <summary>
+    /// The following request returns a single entity with the key value of 1:
+    /// </summary>
+    /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio#retrieving-a-single-entity</remarks>
+    /// <returns></returns>
+    [Fact]
+    public async Task Retrieving_a_single_entity()
+    {
+        /*
+         * The route templates for this request are:
+            GET ~/{entityset}({key})
+            GET ~/{entityset}/{key}
+         */
+        // Arrange
+        const string requestUri = "odata/Shapes(1)";
+        string expectedResponse =
+            await File.ReadAllTextAsync("../../../ExpectedResponses/Retrieving_a_single_entity.json");
+        
+        /*
+         * For the above request to be conventionally-routed, a controller action named Get (or GetShape) that accepts the key parameter is expected
+         */
+        // Act
+        HttpResponseMessage response = await _httpClient.GetAsync(requestUri);
+        
+        // Assert
+        response.EnsureSuccessStatusCode();
+        string actualResponse = await response.Content.ReadAsStringAsync();
+        Assert.Equal(expectedResponse.ToFormattedJsonString(), actualResponse.ToFormattedJsonString());
+    }
+
     [ExcludeFromCodeCoverage]
     public void Dispose()
     {
+        GC.SuppressFinalize(this);
         ResetShapes();
     }
     
