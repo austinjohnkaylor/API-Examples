@@ -27,4 +27,11 @@
         <Using Include="Xunit"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\EntitySetRoutingApi\EntitySetRoutingApi.csproj" />
+      <ProjectReference Include="..\QueryOptionsApi\QueryOptionsApi.csproj" />
+      <ProjectReference Include="..\SimpleCrudWebApi\SimpleCrudWebApi.csproj" />
+      <ProjectReference Include="..\SingletonApi\SingletonApi.csproj" />
+    </ItemGroup>
+
 </Project>
