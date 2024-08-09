@@ -24,3 +24,9 @@ app.UseEndpoints(endpoints => endpoints.MapControllers());
 #pragma warning restore ASP0014
 
 app.Run();
+
+// Needed for Integration Testing
+namespace API.Examples.OData.SingletonApi
+{
+    public partial class Program;
+}
