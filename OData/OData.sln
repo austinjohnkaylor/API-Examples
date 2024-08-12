@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonApi", "SingletonAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{F6E89B8B-4203-4B88-A2AD-084CB8562B9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationRoutingApi", "NavigationRoutingApi\NavigationRoutingApi.csproj", "{939F0D44-F0F0-4242-867D-926C8B7A41C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{F6E89B8B-4203-4B88-A2AD-084CB8562B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6E89B8B-4203-4B88-A2AD-084CB8562B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6E89B8B-4203-4B88-A2AD-084CB8562B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939F0D44-F0F0-4242-867D-926C8B7A41C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939F0D44-F0F0-4242-867D-926C8B7A41C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939F0D44-F0F0-4242-867D-926C8B7A41C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939F0D44-F0F0-4242-867D-926C8B7A41C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
