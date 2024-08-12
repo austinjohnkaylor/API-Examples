@@ -1,0 +1,6 @@
+﻿{
+  "@odata.context": "http://localhost/odata/$metadata#Company/API.Examples.OData.SingletonApi.Models.HoldingCompany",
+  "Id": 13,
+  "Name": "Company LLC",
+  "NumberOfSubsidiaries": 7
+}
