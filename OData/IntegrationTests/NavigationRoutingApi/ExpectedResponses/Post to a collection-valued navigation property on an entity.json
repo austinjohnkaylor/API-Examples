@@ -1,0 +1,5 @@
+﻿{
+  "@odata.context": "http://localhost/odata/$metadata#Employees/$entity",
+  "Id": 7,
+  "Name": "Employee 7"
+}

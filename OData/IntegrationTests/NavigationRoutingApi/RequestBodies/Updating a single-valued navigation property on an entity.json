@@ -1,0 +1,5 @@
+﻿{
+  "@odata.type": "#API.Examples.OData.NavigationRoutingApi.Models.Manager",
+  "Id": 6,
+  "Name": "Employee 6"
+}
