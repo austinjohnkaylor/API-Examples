@@ -19,6 +19,8 @@ This solution and group of projects show to implement different things using ASP
 ](https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/entity-routing?tabs=net60%2Cvisual-studio) because the same entities are used
 ## SingletonApi
 - This project follows the Microsoft Docs tutorial [Singletons in ASP.NET Core OData 8](https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/singletons?tabs=net60%2Cvisual-studio)
+## NavigationRoutingApi
+- This project follows the Microsoft Docs tutorial [Navigation Routing in ASP.NET Core OData 8](https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/navigation-routing?tabs=net60%2Cvisual-studio)
 # Further Reading
 - [OData](https://learn.microsoft.com/en-us/odata/)
 - [OData with ASP.NET Web API](https://learn.microsoft.com/en-us/odata/webapi)
