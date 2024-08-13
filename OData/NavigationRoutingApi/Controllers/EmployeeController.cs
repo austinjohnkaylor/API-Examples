@@ -185,7 +185,10 @@ public class EmployeesController : ODataController
             return NotFound();
         }
 
-        delta.Patch(manager.PersonalAssistant);
+        if (manager.PersonalAssistant != null)
+        {
+            delta.Patch(manager.PersonalAssistant);
+        }
 
         return Ok();
     }
