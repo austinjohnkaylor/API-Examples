@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using API.Examples.OData.IntegrationTests.Extensions;
+using API.Examples.OData.NavigationRoutingApi.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Prog = API.Examples.OData.NavigationRoutingApi.Program;
@@ -12,7 +14,20 @@ namespace API.Examples.OData.IntegrationTests.NavigationRoutingApi;
 /// </summary>
 public class EmployeeControllerTests : IClassFixture<WebApplicationFactory<Prog>>, IDisposable
 {
-    private readonly HttpClient _httpClient = new WebApplicationFactory<Prog>().CreateClient();
+    private readonly HttpClient _httpClient;
+
+    public EmployeeControllerTests(WebApplicationFactory<Prog> application)
+    {
+        _httpClient = application.CreateClient();
+        ResetEmployees();
+    }
+
+    [ExcludeFromCodeCoverage]
+    private static void ResetEmployees()
+    {
+        EmployeesController.employees.Clear();
+        EmployeesController.employees = EmployeesController.GetEmployees();
+    }
 
     /// <summary>
     /// The following request returns the Supervisor single-valued navigation property on employee 1

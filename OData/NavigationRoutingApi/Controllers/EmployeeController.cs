@@ -12,9 +12,9 @@ namespace API.Examples.OData.NavigationRoutingApi.Controllers;
 /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/navigation-routing?tabs=net60%2Cvisual-studio#controller</remarks>
 public class EmployeesController : ODataController
 {
-    private static IList<Employee> employees = GetEmployees();
+    public static IList<Employee> employees = GetEmployees();
 
-    private static List<Employee> GetEmployees()
+    public static List<Employee> GetEmployees()
     {
         Manager employee5 = new() { Id = 5, Name = "Employee 5" };
         Employee employee1 = new() { Id = 1, Name = "Employee 1", Supervisor = employee5 };
