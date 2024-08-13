@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Routing.Attributes;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 
 namespace API.Examples.OData.FunctionRoutingApi;
@@ -19,7 +20,7 @@ public class DefaultController : ODataController
     /// <param name="hourlyRate"></param>
     /// <param name="hoursWorked"></param>
     /// <returns></returns>
-    [HttpGet("odata/GetSalary(hourlyRate={hourlyRate:decimal},hoursWorked={hoursWorked:int})")]
+    [HttpGet("odata/GetSalary(hourlyRate={hourlyRate},hoursWorked={hoursWorked})")]
     public ActionResult<decimal> GetSalary(decimal hourlyRate, int hoursWorked)
     {
         return hourlyRate * hoursWorked;

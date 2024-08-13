@@ -6,7 +6,7 @@ namespace API.Examples.OData.FunctionRoutingApi;
 
 public class EmployeesController : ODataController
 {
-    public static List<Employee> employees =
+    public static List<Employee> Employees =
     [
         new Employee { Id = 1, Name = "Employee 1", PerfRating = 8 },
         new Employee { Id = 2, Name = "Employee 2", PerfRating = 7 },
@@ -24,12 +24,12 @@ public class EmployeesController : ODataController
     [HttpGet]
     public ActionResult<decimal> GetHighestRating()
     {
-        if (employees.Count < 1)
+        if (Employees.Count < 1)
         {
             return NoContent();
         }
 
-        return employees.Select(d => d.PerfRating).OrderByDescending(d => d).First();
+        return Employees.Select(d => d.PerfRating).MaxBy(d => d);
     }
     
     /// <summary>
@@ -41,7 +41,7 @@ public class EmployeesController : ODataController
     [HttpGet]
     public ActionResult<decimal> GetRating([FromRoute] int key)
     {
-        Employee? employee = employees.SingleOrDefault(d => d.Id.Equals(key));
+        Employee? employee = Employees.SingleOrDefault(d => d.Id.Equals(key));
 
         if (employee == null)
         {
@@ -59,7 +59,7 @@ public class EmployeesController : ODataController
     [HttpGet]
     public ActionResult<decimal> GetHighestBonusOnCollectionOfManager()
     {
-        var managers = employees.OfType<Manager>().ToArray();
+        var managers = Employees.OfType<Manager>().ToArray();
 
         if (managers.Length < 1)
         {
@@ -78,7 +78,7 @@ public class EmployeesController : ODataController
     [HttpGet]
     public ActionResult<decimal> GetBonusOnManager([FromRoute] int key)
     {
-        Manager? manager = employees.OfType<Manager>().SingleOrDefault(d => d.Id.Equals(key));
+        Manager? manager = Employees.OfType<Manager>().SingleOrDefault(d => d.Id.Equals(key));
 
         if (manager == null)
         {

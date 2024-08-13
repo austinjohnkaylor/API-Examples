@@ -29,6 +29,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\EntitySetRoutingApi\EntitySetRoutingApi.csproj" />
+      <ProjectReference Include="..\FunctionRoutingApi\FunctionRoutingApi.csproj" />
       <ProjectReference Include="..\NavigationRoutingApi\NavigationRoutingApi.csproj" />
       <ProjectReference Include="..\QueryOptionsApi\QueryOptionsApi.csproj" />
       <ProjectReference Include="..\SimpleCrudWebApi\SimpleCrudWebApi.csproj" />
