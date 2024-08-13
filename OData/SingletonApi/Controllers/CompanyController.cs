@@ -7,7 +7,7 @@ namespace API.Examples.OData.SingletonApi.Controllers;
 
 public class CompanyController : ODataController
 {
-    private static Company company;
+    public static Company Company;
 
     /// <summary>
     /// static constructor that is called only once in the lifetime of the service
@@ -15,7 +15,7 @@ public class CompanyController : ODataController
     static CompanyController()
     {
         // We are initializing the company static class member to an instance of the derived type HoldingCompany
-        company = new HoldingCompany
+        Company = new HoldingCompany
         {
             Id = 13,
             Name = "Company LLC",
@@ -27,14 +27,14 @@ public class CompanyController : ODataController
     /// Retrieving a singleton
     /// </summary>
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/singleton-routing?tabs=visual-studio%2Cnet60#retrieving-a-singleton</remarks>
-    /// <returns>the <see cref="company"/> singleton</returns>
+    /// <returns>the <see cref="Company"/> singleton</returns>
     /// <example>
     /// GET http://localhost:5000/odata/Company
     /// </example>
     /// <value> GET ~/{singleton}</value>
     public ActionResult<Company> Get()
     {
-        return company;
+        return Company;
     }
     
     /// <summary>
@@ -48,7 +48,7 @@ public class CompanyController : ODataController
     /// </example>
     public ActionResult<HoldingCompany> GetFromHoldingCompany()
     {
-        if (company is not HoldingCompany holdingCompany)
+        if (Company is not HoldingCompany holdingCompany)
         {
             return NotFound();
         }
@@ -59,14 +59,14 @@ public class CompanyController : ODataController
     /// <summary>
     /// Updating a singleton
     /// </summary>
-    /// <param name="updated">The updated <see cref="Company"/> singleton</param>
+    /// <param name="updated">The updated <see cref="Models.Company"/> singleton</param>
     /// <returns>updates the Company singleton</returns>
     /// <value>PUT ~/{singleton}</value>
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/singleton-routing?tabs=visual-studio%2Cnet60#updating-a-singleton</remarks>
     /// <example>PUT http://localhost:5000/odata/Company</example>
     public ActionResult Put([FromBody] Company updated)
     {
-        company.Name = updated.Name;
+        Company.Name = updated.Name;
 
         return Ok();
     }
@@ -81,7 +81,7 @@ public class CompanyController : ODataController
     /// <example>PUT http://localhost:5000/odata/Company/SingletonApi.Models.HoldingCompany</example>
     public ActionResult PutFromHoldingCompany([FromBody] HoldingCompany updated)
     {
-        if (company is not HoldingCompany holdingCompany)
+        if (Company is not HoldingCompany holdingCompany)
         {
             return NotFound();
         }
@@ -95,14 +95,14 @@ public class CompanyController : ODataController
     /// <summary>
     /// Patching a singleton
     /// </summary>
-    /// <param name="delta">The <see cref="Delta{T}"/> of the singleton <see cref="company"/></param>
+    /// <param name="delta">The <see cref="Delta{T}"/> of the singleton <see cref="Company"/></param>
     /// <returns></returns>
     /// <value>PATCH ~/{singleton}</value>
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/singleton-routing?tabs=visual-studio%2Cnet60#patching-a-singleton</remarks>
     /// <example>PATCH http://localhost:5000/odata/Company</example>
     public ActionResult Patch([FromBody] Delta<Company> delta)
     {
-        delta.Patch(company);
+        delta.Patch(Company);
 
         return Ok();
     }
@@ -117,7 +117,7 @@ public class CompanyController : ODataController
     /// <remarks>https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/singleton-routing?tabs=visual-studio%2Cnet60#patching-a-derived-singleton</remarks>
     public ActionResult PatchFromHoldingCompany([FromBody] Delta<HoldingCompany> delta)
     {
-        if (company is not HoldingCompany holdingCompany)
+        if (Company is not HoldingCompany holdingCompany)
         {
             return NotFound();
         }

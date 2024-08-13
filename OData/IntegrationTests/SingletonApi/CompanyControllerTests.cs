@@ -1,6 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using API.Examples.OData.IntegrationTests.Extensions;
 using API.Examples.OData.SingletonApi.Controllers;
+using API.Examples.OData.SingletonApi.Models;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Prog = API.Examples.OData.SingletonApi.Program;
 
@@ -9,10 +10,20 @@ namespace API.Examples.OData.IntegrationTests.SingletonApi;
 /// <summary>
 /// Integration Tests for the <see cref="CompanyController"/>
 /// </summary>
-public class CompanyControllerTests(WebApplicationFactory<Prog> application)
-    : IClassFixture<WebApplicationFactory<Prog>>, IDisposable
+public class CompanyControllerTests : IClassFixture<WebApplicationFactory<Prog>>, IDisposable
 {
-    private readonly HttpClient _httpClient = application.CreateClient();
+    private readonly HttpClient _httpClient;
+
+    public CompanyControllerTests(WebApplicationFactory<Prog> application)
+    {
+        _httpClient = application.CreateClient();
+        CompanyController.Company = new HoldingCompany
+        {
+            Id = 13,
+            Name = "Company LLC",
+            NumberOfSubsidiaries = 7
+        };
+    }
 
     /// <summary>
     /// 
