@@ -21,6 +21,19 @@ public class Program
             .Returns<decimal>();
         managerEntityType.Function("GetBonus")
             .Returns<decimal>();
+        
+        /*
+         * The following code configures an unbound function named GetSalary in the Edm model.
+         * The function accepts two parameters, namely, hourlyRate and hoursWorked, and returns a decimal result.
+         * Notice that we call Function directly on the ODataModelBuilder, instead of entity type or collection
+         *
+         * An unbound function can be placed in any controller in the application.
+         * To avoid confusion, you can create a controller unassociated with any entity set to serve as a home for your unbound operations.
+         */
+        FunctionConfiguration? getSalaryFunction = modelBuilder.Function("GetSalary");
+        getSalaryFunction.Parameter<decimal>("hourlyRate");
+        getSalaryFunction.Parameter<int>("hoursWorked");
+        getSalaryFunction.Returns<decimal>();
 
         builder.Services.AddControllers().AddOData(
             options => options.EnableQueryFeatures(null).AddRouteComponents(
