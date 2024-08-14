@@ -23,6 +23,8 @@ This solution and group of projects show to implement different things using ASP
 - This project follows the Microsoft Docs tutorial [Navigation Routing in ASP.NET Core OData 8](https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/navigation-routing?tabs=net60%2Cvisual-studio)
 ## FunctionRoutingApi
 - This project follows the Microsoft Docs tutorial [Function Routing in ASP.NET Core OData 8](https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/function-routing?tabs=net60%2Cvisual-studio)
+## ShowcaseApi
+- This project shows off all that you can do with OData in ASP.NET Core.
 # Further Reading
 - [OData](https://learn.microsoft.com/en-us/odata/)
 - [OData with ASP.NET Web API](https://learn.microsoft.com/en-us/odata/webapi)
