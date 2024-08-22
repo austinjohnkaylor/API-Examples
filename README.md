@@ -2,6 +2,8 @@
 A repository containing examples of how to implement different things in ASP.NET Core Web APIs
 
 ## Projects
+### [Shared Resources](Shared%20Resources/README.md)
+Contains resources that are shared across multiple projects. This includes things like shared code, shared data, and shared documentation
 ### [Uri Versioning](Uri%20Versioning/README.md)
 Shows how to version an ASP.NET Core Web API by URL
 ### [Model State Validation](Model%20State%20Validation/README.md)
@@ -12,3 +14,5 @@ Shows how to implement simple token-based authentication in a .NET 8 ASP.NET Cor
 Shows how to implement in-memory caching in an ASP.NET Core Web API
 ### [Open API Documentation](Open%20API%20Documentation/README.md)
 Shows how to implement Swagger(Swashbuckle), NSwag, and Redoc in minimal and controller-based web APIs
+### [OData](OData/README.md)
+Shows how to implement different things using ASP.NET Web API's, Entity Framework Core, and OData

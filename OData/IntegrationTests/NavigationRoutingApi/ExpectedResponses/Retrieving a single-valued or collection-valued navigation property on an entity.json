@@ -1,0 +1,6 @@
+﻿{
+  "@odata.context": "http://localhost/odata/$metadata#Employees/API.Examples.OData.NavigationRoutingApi.Models.Manager/$entity",
+  "@odata.type": "#API.Examples.OData.NavigationRoutingApi.Models.Manager",
+  "Id": 5,
+  "Name": "Employee 5"
+}

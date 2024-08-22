@@ -1,0 +1,8 @@
+PATCH {{base-address}}/odata/Customers(1001)
+OData-Version: 4.0
+Content-Type: application/json;odata.metadata=minimal
+Accept: application/json
+
+{
+    "Name": "Luc"
+}

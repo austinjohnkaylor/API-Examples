@@ -1,0 +1,16 @@
+﻿{
+  "value": [
+    {
+      "Id": 1,
+      "Length": 6,
+      "Width": 5,
+      "Area": 30
+    },
+    {
+      "Id": 3,
+      "Length": 8,
+      "Width": 4,
+      "Area": 32
+    }
+  ]
+}

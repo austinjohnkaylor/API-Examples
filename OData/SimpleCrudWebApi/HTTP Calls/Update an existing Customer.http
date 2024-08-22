@@ -1,0 +1,12 @@
+PUT {{base-address}}/odata/Customers(1)
+OData-Version: 4.0
+Content-Type: application/json;odata.metadata=minimal
+Accept: application/json
+
+{
+    "Id": 1,
+    "Name": "Luc",
+    "CustomerType": "Retail",
+    "CreditLimit": 2300,
+    "CustomerSince": "2022-10-01"
+}

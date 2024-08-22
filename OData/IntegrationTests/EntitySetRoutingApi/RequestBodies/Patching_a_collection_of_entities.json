@@ -1,0 +1,17 @@
+﻿{
+  "value": [
+    {
+      "@odata.type": "#API.Examples.OData.EntitySetRoutingApi.Models.Circle",
+      "Id": 2,
+      "Radius": 0.7,
+      "Area": 1.54
+    },
+    {
+      "@odata.type": "#API.Examples.OData.EntitySetRoutingApi.Models.Rectangle",
+      "Id": 3,
+      "Length": 8,
+      "Width": 4,
+      "Area": 32
+    }
+  ]
+}
